@@ -123,7 +123,9 @@ func _update_hp_display(current_hp: int, max_hp: int) -> void:
 		var heart_nodes = hearts_container.get_children()
 		for i in range(heart_nodes.size()):
 			if heart_nodes[i] is TextureRect:
-				(heart_nodes[i] as TextureRect).texture = tex_heart_full if i < current_hp else tex_heart_empty
+				var h_rect := heart_nodes[i] as TextureRect
+				if h_rect:
+					h_rect.texture = tex_heart_full if i < current_hp else tex_heart_empty
 
 func _on_boss_defeated(data: Dictionary) -> void:
 	var title = "BOS 1 DIKALAHKAN!" if level_index == 1 else "BOS TERAKHIR DIKALAHKAN!"
