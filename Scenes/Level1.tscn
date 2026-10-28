@@ -1,0 +1,587 @@
+[gd_scene load_steps=21 format=3]
+
+[ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_level_mgr"]
+[ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/dirt_grass.png" id="2_dirt_grass"]
+[ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/dirt.png" id="3_dirt"]
+[ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/brick_grey.png" id="4_brick_grey"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Player.tscn" id="5_player_prefab"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Boss.tscn" id="6_boss_prefab"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/Enemy.tscn" id="7_enemy_prefab"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/CheckPoint.tscn" id="8_cp_prefab"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/GoalDoor.tscn" id="9_door_prefab"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/ProfilePopup.tscn" id="10_popup_prefab"]
+[ext_resource type="Texture2D" path="res://Assets/UI/ui_panel_parchment.png" id="11_ui_panel"]
+[ext_resource type="Texture2D" path="res://Assets/UI/ui_panel_blue.png" id="12_ui_blue"]
+[ext_resource type="Texture2D" path="res://Assets/UI/ui_slot.png" id="13_ui_slot"]
+[ext_resource type="Texture2D" path="res://Assets/UI/ui_heart_full.png" id="14_heart"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/Composite/sword_iron.png" id="15_sword_icon"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/Composite/sword_beam.png" id="16_beam_icon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1"]
+size = Vector2(320, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2"]
+size = Vector2(320, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_step"]
+size = Vector2(64, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3"]
+size = Vector2(340, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4"]
+size = Vector2(460, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_perch"]
+size = Vector2(280, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7"]
+size = Vector2(420, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8"]
+size = Vector2(400, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pregate"]
+size = Vector2(160, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss_ground"]
+size = Vector2(500, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
+size = Vector2(24, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(24, 400)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_level_mgr")
+level_index = 1
+
+[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Sky" type="ColorRect" parent="CanvasLayerBG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.35, 0.65, 0.9, 1)
+
+[node name="Sun" type="ColorRect" parent="CanvasLayerBG"]
+offset_left = 540.0
+offset_top = 24.0
+offset_right = 588.0
+offset_bottom = 72.0
+color = Color(1, 0.92, 0.4, 1)
+
+[node name="WorldGeometry" type="Node2D" parent="."]
+
+[node name="Platform1_Start" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(160, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform1_Start"]
+shape = SubResource("RectangleShape2D_p1")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform1_Start"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dirt_grass")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 128)
+
+[node name="Platform2" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(520, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform2"]
+shape = SubResource("RectangleShape2D_p2")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform2"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dirt_grass")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 128)
+
+[node name="FloatingStep1" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(740, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep1"]
+shape = SubResource("RectangleShape2D_step")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep1"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_brick_grey")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 48)
+
+[node name="Platform3" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(960, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform3"]
+shape = SubResource("RectangleShape2D_p3")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform3"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dirt_grass")
+region_enabled = true
+region_rect = Rect2(0, 0, 680, 128)
+
+[node name="FloatingStep2" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(1190, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep2"]
+shape = SubResource("RectangleShape2D_step")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep2"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_brick_grey")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 48)
+
+[node name="Platform4_Valley" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(1480, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform4_Valley"]
+shape = SubResource("RectangleShape2D_p4")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform4_Valley"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dirt_grass")
+region_enabled = true
+region_rect = Rect2(0, 0, 920, 128)
+
+[node name="FloatingStep3" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(1770, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep3"]
+shape = SubResource("RectangleShape2D_step")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep3"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_brick_grey")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 48)
+
+[node name="Platform5_SniperPerch" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(1960, 240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform5_SniperPerch"]
+shape = SubResource("RectangleShape2D_perch")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform5_SniperPerch"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_brick_grey")
+region_enabled = true
+region_rect = Rect2(0, 0, 560, 128)
+
+[node name="Platform6_CheckPointGround" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(2360, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform6_CheckPointGround"]
+shape = SubResource("RectangleShape2D_p4")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform6_CheckPointGround"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dirt_grass")
+region_enabled = true
+region_rect = Rect2(0, 0, 920, 128)
+
+[node name="FloatingStep4" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(2650, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep4"]
+shape = SubResource("RectangleShape2D_step")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep4"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_brick_grey")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 48)
+
+[node name="Platform7_Cavern" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(2920, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform7_Cavern"]
+shape = SubResource("RectangleShape2D_p7")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform7_Cavern"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dirt_grass")
+region_enabled = true
+region_rect = Rect2(0, 0, 840, 128)
+
+[node name="FloatingStep5" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(3200, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep5"]
+shape = SubResource("RectangleShape2D_step")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep5"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_brick_grey")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 48)
+
+[node name="Platform8_FortressOutpost" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(3450, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform8_FortressOutpost"]
+shape = SubResource("RectangleShape2D_p8")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform8_FortressOutpost"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_brick_grey")
+region_enabled = true
+region_rect = Rect2(0, 0, 800, 128)
+
+[node name="Platform9_PreGate" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(3730, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform9_PreGate"]
+shape = SubResource("RectangleShape2D_pregate")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform9_PreGate"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dirt_grass")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 128)
+
+[node name="ArenaGate" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(3790, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/ArenaGate"]
+shape = SubResource("RectangleShape2D_gate")
+
+[node name="GateVisual" type="ColorRect" parent="WorldGeometry/ArenaGate"]
+offset_left = -12.0
+offset_top = -75.0
+offset_right = 12.0
+offset_bottom = 75.0
+color = Color(0.85, 0.22, 0.22, 0.95)
+
+[node name="LabelGate" type="Label" parent="WorldGeometry/ArenaGate"]
+offset_left = -60.0
+offset_top = -96.0
+offset_right = 60.0
+offset_bottom = -76.0
+theme_override_colors/font_color = Color(1, 0.92, 0.4, 1)
+theme_override_font_sizes/font_size = 9
+text = "GERBANG BOS"
+horizontal_alignment = 1
+
+[node name="Platform10_BossArena" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(4050, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform10_BossArena"]
+shape = SubResource("RectangleShape2D_boss_ground")
+
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform10_BossArena"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_brick_grey")
+region_enabled = true
+region_rect = Rect2(0, 0, 1000, 128)
+
+[node name="LeftWall" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(-12, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/LeftWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="RightWall" type="StaticBody2D" parent="WorldGeometry"]
+position = Vector2(4290, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/RightWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Player" parent="." instance=ExtResource("5_player_prefab")]
+position = Vector2(70, 275)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 4280
+limit_bottom = 360
+position_smoothing_enabled = true
+
+[node name="EnemyZombie1" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(520, 260)
+enemy_type = "zombie"
+
+[node name="EnemySkeleton1" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(960, 275)
+enemy_type = "skeleton"
+
+[node name="EnemyBoar1" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(1420, 275)
+enemy_type = "chaser"
+
+[node name="EnemyZombie2" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(1600, 275)
+enemy_type = "zombie"
+
+[node name="EnemyShooter1" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(1960, 185)
+enemy_type = "shooter"
+
+[node name="CheckPoint" parent="." instance=ExtResource("8_cp_prefab")]
+position = Vector2(2180, 296)
+
+[node name="EnemySkeleton2" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(2450, 275)
+enemy_type = "skeleton"
+
+[node name="EnemyBoar2" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(2860, 260)
+enemy_type = "chaser"
+
+[node name="EnemyZombie3" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(3040, 260)
+enemy_type = "zombie"
+
+[node name="EnemyShooter2" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(3380, 255)
+enemy_type = "shooter"
+
+[node name="EnemySkeleton3" parent="." instance=ExtResource("7_enemy_prefab")]
+position = Vector2(3540, 260)
+enemy_type = "skeleton"
+
+[node name="Boss" parent="." instance=ExtResource("6_boss_prefab")]
+position = Vector2(4000, 230)
+level_index = 1
+
+[node name="GoalDoor" parent="." instance=ExtResource("9_door_prefab")]
+position = Vector2(4230, 275)
+target_level = 2
+
+[node name="ProfilePopup" parent="." instance=ExtResource("10_popup_prefab")]
+
+[node name="CanvasLayerHUD" type="CanvasLayer" parent="."]
+
+[node name="HUDPanel" type="NinePatchRect" parent="CanvasLayerHUD"]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 230.0
+offset_bottom = 66.0
+texture = ExtResource("11_ui_panel")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayerHUD/HUDPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 6
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HBoxHP" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LabelHPTitle" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.16, 0.08, 1)
+theme_override_font_sizes/font_size = 10
+text = "DARAH:"
+
+[node name="Hearts" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture = ExtResource("14_heart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture = ExtResource("14_heart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture = ExtResource("14_heart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelEnemies" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.28, 0.18, 0.1, 1)
+theme_override_font_sizes/font_size = 10
+text = "Musuh Tersisa: 10 / 10"
+
+[node name="WeaponsPanel" type="NinePatchRect" parent="CanvasLayerHUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_top = 8.0
+offset_right = -12.0
+offset_bottom = 54.0
+grow_horizontal = 0
+texture = ExtResource("11_ui_panel")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -8.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="SlotMelee" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+texture = ExtResource("13_ui_slot")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee/SlotFrame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_sword_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.15, 0.08, 1)
+theme_override_font_sizes/font_size = 8
+text = "[Z] TEBAS\n2 DMG"
+
+[node name="SlotRanged" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged"]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+texture = ExtResource("13_ui_slot")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged/SlotFrame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -10.0
+offset_right = 13.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_beam_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.25, 0.45, 1)
+theme_override_font_sizes/font_size = 8
+text = "[X] GELOMBANG\n1 DMG"
+
+[node name="BottomControls" type="NinePatchRect" parent="CanvasLayerHUD"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -26.0
+offset_right = -12.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("12_ui_blue")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="LabelControls" type="Label" parent="CanvasLayerHUD/BottomControls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.95)
+theme_override_font_sizes/font_size = 9
+text = "[A/D] Jalan | [SPASI] Lompat Tinggi | [Z/J/Klik Kiri] Tebas Pedang (2 DMG) | [X/K/Klik Kanan] Gelombang Pedang (1 DMG)"
+horizontal_alignment = 1
+vertical_alignment = 1

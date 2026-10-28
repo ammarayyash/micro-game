@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Scripts/ProfilePopup.gd" id="1_popup"]
+[ext_resource type="Texture2D" path="res://Assets/Profiles/member_1.png" id="2_avatar_tex"]
+[ext_resource type="Texture2D" path="res://Assets/UI/ui_panel_parchment.png" id="3_panel_tex"]
+[ext_resource type="Texture2D" path="res://Assets/UI/ui_slot.png" id="4_slot_tex"]
+
+[node name="ProfilePopup" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+script = ExtResource("1_popup")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="Panel" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -120.0
+offset_right = 210.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_panel_tex")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelTitle" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.15, 0.1, 1)
+theme_override_colors/font_shadow_color = Color(0.9, 0.8, 0.6, 1)
+theme_override_font_sizes/font_size = 14
+text = "★ IDENTITAS TERUNGKAP! ★"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SlotAvatar" type="NinePatchRect" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(84, 84)
+layout_mode = 2
+texture = ExtResource("4_slot_tex")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="TextureAvatar" type="TextureRect" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/SlotAvatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_avatar_tex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxInfo" type="VBoxContainer" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="LabelNama" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.14, 0.1, 1)
+text = "Nama : Mamank"
+
+[node name="LabelNIM" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.14, 0.1, 1)
+text = "NIM  : 220101001"
+
+[node name="LabelRole" type="Label" parent="Control/Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.14, 0.1, 1)
+text = "Peran: Programmer"
+
+[node name="BtnContinue" type="Button" parent="Control/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "LANJUT >>"

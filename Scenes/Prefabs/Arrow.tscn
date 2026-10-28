@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Arrow.gd" id="1_arrow"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/Composite/sword_beam.png" id="2_beam_tex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beam"]
+size = Vector2(28, 22)
+
+[node name="SwordBeam" type="Area2D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_arrow")
+speed = 440.0
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_beam")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_beam_tex")

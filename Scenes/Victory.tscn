@@ -1,0 +1,140 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Victory.gd" id="1_vic_script"]
+[ext_resource type="Texture2D" path="res://Assets/Profiles/member_1.png" id="2_hero_tex"]
+[ext_resource type="Texture2D" path="res://Assets/UI/ui_panel_parchment.png" id="3_panel"]
+[ext_resource type="Texture2D" path="res://Assets/UI/ui_slot.png" id="4_slot"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vic_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.14, 0.22, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LabelTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.25, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_font_sizes/font_size = 28
+text = "★ LEVEL CLEARED! ★"
+horizontal_alignment = 1
+
+[node name="LabelSubtitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "Selamat! Seluruh identitas tim telah berhasil diungkapkan!"
+horizontal_alignment = 1
+
+[node name="PanelHero" type="NinePatchRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(380, 190)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_panel")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/PanelHero"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/PanelHero/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LabelHeader" type="Label" parent="VBoxContainer/PanelHero/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.15, 0.1, 1)
+theme_override_font_sizes/font_size = 13
+text = "★ IDENTITAS PAHLAWAN TERPILIH ★"
+horizontal_alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/PanelHero/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SlotAvatar" type="NinePatchRect" parent="VBoxContainer/PanelHero/Margin/VBox/HBox"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("4_slot")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Avatar" type="TextureRect" parent="VBoxContainer/PanelHero/Margin/VBox/HBox/SlotAvatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hero_tex")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxInfo" type="VBoxContainer" parent="VBoxContainer/PanelHero/Margin/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="LabelNama" type="Label" parent="VBoxContainer/PanelHero/Margin/VBox/HBox/VBoxInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.18, 0.14, 0.1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Nama : Mamank"
+
+[node name="LabelNIM" type="Label" parent="VBoxContainer/PanelHero/Margin/VBox/HBox/VBoxInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.25, 0.2, 1)
+theme_override_font_sizes/font_size = 11
+text = "NIM  : 220101001"
+
+[node name="LabelRole" type="Label" parent="VBoxContainer/PanelHero/Margin/VBox/HBox/VBoxInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.35, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+text = "Peran: Programmer"
+
+[node name="BtnRestart" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(160, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "↺ MAIN LAGI"
