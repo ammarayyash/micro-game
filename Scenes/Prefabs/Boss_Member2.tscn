@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Boss.gd" id="1_boss"]
+[ext_resource type="SpriteFrames" path="res://Assets/Characters/Composite/member_2_frames.tres" id="2_frames"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="3_hb_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(44, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_head"]
+size = Vector2(42, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_damage"]
+size = Vector2(52, 110)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fill"]
+bg_color = Color(0.95, 0.15, 0.15, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Boss" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_boss")
+max_hp = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.6, 2.6)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="HeadHurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadHurtbox"]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_head")
+
+[node name="BodyDamageArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDamageArea"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_damage")
+
+[node name="WallRay" type="RayCast2D" parent="."]
+target_position = Vector2(-35, 0)
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(0, -78)
+script = ExtResource("3_hb_script")
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+offset_left = -38.0
+offset_top = -6.0
+offset_right = 38.0
+offset_bottom = 6.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_fill")
+max_value = 5.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="LabelName" type="Label" parent="HealthBar"]
+offset_left = -110.0
+offset_top = -24.0
+offset_right = 110.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(1, 0.88, 0.3, 1)
+theme_override_font_sizes/font_size = 10
+text = "BOS RAKSASA HP"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="HeadHurtbox" to="." method="_on_head_hurtbox_body_entered"]
+[connection signal="body_entered" from="BodyDamageArea" to="." method="_on_body_damage_area_body_entered"]

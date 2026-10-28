@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3]
+[gd_scene load_steps=32 format=3]
 
 [ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_level_mgr"]
 [ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/brick_grey.png" id="2_brick_grey"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" path="res://Assets/UI/ui_heart_full.png" id="14_heart"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/sword_iron.png" id="15_sword_icon"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/sword_beam.png" id="16_beam_icon"]
+[ext_resource type="TileSet" path="res://Assets/Environment/level_tileset.tres" id="17_level_tileset"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1"]
 size = Vector2(320, 64)
@@ -61,6 +62,12 @@ size = Vector2(24, 420)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_level_mgr")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("17_level_tileset")
+format = 2
 level_index = 2
 
 [node name="CanvasLayerBG" type="CanvasLayer" parent="."]

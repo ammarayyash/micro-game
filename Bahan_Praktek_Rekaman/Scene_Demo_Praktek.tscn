@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3]
 
 [ext_resource type="PackedScene" path="res://Scenes/Prefabs/Player.tscn" id="1_demo_player"]
+[ext_resource type="TileSet" path="res://Assets/Environment/level_tileset.tres" id="2_avke3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(400, 40)
 
-[node name="SceneDemoPraktek" type="Node2D"]
+[node name="SceneDemoPraktek" type="Node2D" unique_id=802549869]
 
-[node name="LabelPetunjuk" type="Label" parent="."]
+[node name="LabelPetunjuk" type="Label" parent="." unique_id=355167054]
 offset_left = 30.0
 offset_top = 20.0
 offset_right = 500.0
@@ -15,18 +16,25 @@ offset_bottom = 60.0
 text = "SCENE DEMO PRAKTEK (Khusus Rekaman Layar Level Designer)
 Gunakan scene ini saat merekam penataan platform & player."
 
-[node name="DemoGround" type="StaticBody2D" parent="."]
+[node name="DemoGround" type="StaticBody2D" parent="." unique_id=1165400408]
 position = Vector2(300, 300)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DemoGround"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DemoGround" unique_id=1338722349]
 shape = SubResource("RectangleShape2D_ground")
 
-[node name="ColorRect" type="ColorRect" parent="DemoGround"]
+[node name="ColorRect" type="ColorRect" parent="DemoGround" unique_id=183483438]
 offset_left = -200.0
 offset_top = -20.0
 offset_right = 200.0
 offset_bottom = 20.0
 color = Color(0.3, 0.6, 0.3, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_demo_player")]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1749844858 instance=ExtResource("1_demo_player")]
 position = Vector2(160, 260)
+collision_layer = 2
+
+[node name="TileMap" type="TileMap" parent="." unique_id=343158394]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2_avke3")
+format = 2
+layer_0/tile_data = PackedInt32Array(393218, 393216, 1, 393219, 393216, 1, 393220, 393216, 1, 393221, 393216, 1, 393222, 393216, 1, 393223, 393216, 1, 393224, 393216, 1, 393225, 393216, 1)
