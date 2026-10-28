@@ -1,7 +1,8 @@
 extends Node
 
 ## GameManager.gd
-## Autoload Singleton: Mengatur data 3 profil anggota tim dan penugasan Hero vs 2 Bos dinamis.
+## Autoload Singleton: Mengatur data 3 profil anggota tim, penugasan Hero vs 2 Bos dinamis,
+## serta pemutar efek suara universal (SFX Manager) dari folder Audio.
 
 signal character_selected(hero_data)
 
@@ -89,3 +90,19 @@ func go_to_victory() -> void:
 
 func restart_game() -> void:
 	get_tree().change_scene_to_file("res://Scenes/CharacterSelect.tscn")
+
+## Memutar efek suara (SFX) dari direktori Audio secara dinamis
+func play_sfx(sound_path: String, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
+	if not ResourceLoader.exists(sound_path):
+		return
+	var stream = load(sound_path) as AudioStream
+	if not stream:
+		return
+	var player = AudioStreamPlayer.new()
+	player.stream = stream
+	player.volume_db = volume_db
+	player.pitch_scale = pitch_scale
+	player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
