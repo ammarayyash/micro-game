@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene format=3 uid="uid://dpal1xa318agg"]
 
-[ext_resource type="Script" path="res://Scripts/CharacterSelect.gd" id="1_cs_script"]
-[ext_resource type="Texture2D" path="res://Assets/Profiles/member_1.png" id="2_m1"]
-[ext_resource type="Texture2D" path="res://Assets/Profiles/member_2.png" id="3_m2"]
-[ext_resource type="Texture2D" path="res://Assets/Profiles/member_3.png" id="4_m3"]
-[ext_resource type="Texture2D" path="res://Assets/UI/ui_panel_parchment.png" id="5_parchment"]
-[ext_resource type="Texture2D" path="res://Assets/UI/ui_slot.png" id="6_slot"]
+[ext_resource type="Script" uid="uid://bk1gx41784cb8" path="res://Scripts/CharacterSelect.gd" id="1_cs_script"]
+[ext_resource type="Texture2D" uid="uid://blwo0yl6dx87p" path="res://Assets/Profiles/member_1.png" id="2_m1"]
+[ext_resource type="Texture2D" uid="uid://bdnuse08fejed" path="res://Assets/Profiles/member_2.png" id="3_m2"]
+[ext_resource type="Texture2D" uid="uid://dcguokyivfpb4" path="res://Assets/Profiles/member_3.png" id="4_m3"]
+[ext_resource type="Texture2D" uid="uid://clcqct7011o04" path="res://Assets/UI/ui_panel_parchment.png" id="5_parchment"]
+[ext_resource type="Texture2D" uid="uid://crrj5bsbvlpga" path="res://Assets/UI/ui_slot.png" id="6_slot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
 content_margin_left = 6.0
@@ -23,7 +23,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="CharacterSelect" type="Control"]
+[node name="CharacterSelect" type="Control" unique_id=364311068]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cs_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=2070009637]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08, 0.1, 0.15, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1018938979]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +51,7 @@ grow_vertical = 2
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=2036968042]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.88, 0.25, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
@@ -59,19 +59,19 @@ theme_override_font_sizes/font_size = 18
 text = "★ PIXEL INTRO BROS (3 MEMBERS) ★"
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="VBoxContainer"]
+[node name="Subtitle" type="Label" parent="VBoxContainer" unique_id=612489743]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.9, 0.95, 1)
 theme_override_font_sizes/font_size = 9
 text = "Ketik Nama & NIM, lalu pilih 1 Hero! (2 Anggota lainnya otomatis menjadi Bos Level 1 & Bos Level 2)"
 horizontal_alignment = 1
 
-[node name="HBoxCards" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxCards" type="HBoxContainer" parent="VBoxContainer" unique_id=1919180675]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Card0" type="NinePatchRect" parent="VBoxContainer/HBoxCards"]
+[node name="Card0" type="NinePatchRect" parent="VBoxContainer/HBoxCards" unique_id=1528417392]
 custom_minimum_size = Vector2(175, 252)
 layout_mode = 2
 texture = ExtResource("5_parchment")
@@ -80,7 +80,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="VBox" type="VBoxContainer" parent="VBoxContainer/HBoxCards/Card0"]
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/HBoxCards/Card0" unique_id=782697536]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,7 +94,7 @@ grow_vertical = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="SlotAvatar" type="NinePatchRect" parent="VBoxContainer/HBoxCards/Card0/VBox"]
+[node name="SlotAvatar" type="NinePatchRect" parent="VBoxContainer/HBoxCards/Card0/VBox" unique_id=1628520353]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -104,7 +104,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="Avatar" type="TextureRect" parent="VBoxContainer/HBoxCards/Card0/VBox/SlotAvatar"]
+[node name="Avatar" type="TextureRect" parent="VBoxContainer/HBoxCards/Card0/VBox/SlotAvatar" unique_id=197828727]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -120,20 +120,20 @@ texture = ExtResource("2_m1")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LabelRole" type="Label" parent="VBoxContainer/HBoxCards/Card0/VBox"]
+[node name="LabelRole" type="Label" parent="VBoxContainer/HBoxCards/Card0/VBox" unique_id=1915037433]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.1, 0.35, 0.7, 1)
 theme_override_font_sizes/font_size = 9
 text = "Role: Programmer"
 horizontal_alignment = 1
 
-[node name="LabelNamaTitle" type="Label" parent="VBoxContainer/HBoxCards/Card0/VBox"]
+[node name="LabelNamaTitle" type="Label" parent="VBoxContainer/HBoxCards/Card0/VBox" unique_id=1331135514]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.25, 0.15, 1)
 theme_override_font_sizes/font_size = 8
 text = "Nama Anggota 1:"
 
-[node name="EditNama" type="LineEdit" parent="VBoxContainer/HBoxCards/Card0/VBox"]
+[node name="EditNama" type="LineEdit" parent="VBoxContainer/HBoxCards/Card0/VBox" unique_id=554760942]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.12, 0.1, 0.08, 1)
@@ -144,13 +144,13 @@ text = "Muhammad Ammar A"
 placeholder_text = "Nama Anda"
 alignment = 1
 
-[node name="LabelNIMTitle" type="Label" parent="VBoxContainer/HBoxCards/Card0/VBox"]
+[node name="LabelNIMTitle" type="Label" parent="VBoxContainer/HBoxCards/Card0/VBox" unique_id=2035017343]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.25, 0.15, 1)
 theme_override_font_sizes/font_size = 8
 text = "NIM Anggota 1:"
 
-[node name="EditNIM" type="LineEdit" parent="VBoxContainer/HBoxCards/Card0/VBox"]
+[node name="EditNIM" type="LineEdit" parent="VBoxContainer/HBoxCards/Card0/VBox" unique_id=1068432728]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.16, 0.12, 1)
@@ -161,7 +161,7 @@ text = "240533606050"
 placeholder_text = "NIM Anda"
 alignment = 1
 
-[node name="BtnPilih" type="Button" parent="VBoxContainer/HBoxCards/Card0"]
+[node name="BtnPilih" type="Button" parent="VBoxContainer/HBoxCards/Card0" unique_id=1691969290]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -177,7 +177,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 9
 text = "PILIH HERO"
 
-[node name="Card1" type="NinePatchRect" parent="VBoxContainer/HBoxCards"]
+[node name="Card1" type="NinePatchRect" parent="VBoxContainer/HBoxCards" unique_id=1972534591]
 custom_minimum_size = Vector2(175, 252)
 layout_mode = 2
 texture = ExtResource("5_parchment")
@@ -186,7 +186,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="VBox" type="VBoxContainer" parent="VBoxContainer/HBoxCards/Card1"]
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/HBoxCards/Card1" unique_id=1560202036]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -200,7 +200,7 @@ grow_vertical = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="SlotAvatar" type="NinePatchRect" parent="VBoxContainer/HBoxCards/Card1/VBox"]
+[node name="SlotAvatar" type="NinePatchRect" parent="VBoxContainer/HBoxCards/Card1/VBox" unique_id=1348440030]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -210,7 +210,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="Avatar" type="TextureRect" parent="VBoxContainer/HBoxCards/Card1/VBox/SlotAvatar"]
+[node name="Avatar" type="TextureRect" parent="VBoxContainer/HBoxCards/Card1/VBox/SlotAvatar" unique_id=200523692]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -226,20 +226,20 @@ texture = ExtResource("3_m2")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LabelRole" type="Label" parent="VBoxContainer/HBoxCards/Card1/VBox"]
+[node name="LabelRole" type="Label" parent="VBoxContainer/HBoxCards/Card1/VBox" unique_id=1207522014]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.75, 0.15, 0.4, 1)
 theme_override_font_sizes/font_size = 9
 text = "Role: Artist"
 horizontal_alignment = 1
 
-[node name="LabelNamaTitle" type="Label" parent="VBoxContainer/HBoxCards/Card1/VBox"]
+[node name="LabelNamaTitle" type="Label" parent="VBoxContainer/HBoxCards/Card1/VBox" unique_id=246099507]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.25, 0.15, 1)
 theme_override_font_sizes/font_size = 8
 text = "Nama Anggota 2:"
 
-[node name="EditNama" type="LineEdit" parent="VBoxContainer/HBoxCards/Card1/VBox"]
+[node name="EditNama" type="LineEdit" parent="VBoxContainer/HBoxCards/Card1/VBox" unique_id=1752282730]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.12, 0.1, 0.08, 1)
@@ -250,13 +250,13 @@ text = "Habibulloh Zamzami"
 placeholder_text = "Nama Anda"
 alignment = 1
 
-[node name="LabelNIMTitle" type="Label" parent="VBoxContainer/HBoxCards/Card1/VBox"]
+[node name="LabelNIMTitle" type="Label" parent="VBoxContainer/HBoxCards/Card1/VBox" unique_id=674998182]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.25, 0.15, 1)
 theme_override_font_sizes/font_size = 8
 text = "NIM Anggota 2:"
 
-[node name="EditNIM" type="LineEdit" parent="VBoxContainer/HBoxCards/Card1/VBox"]
+[node name="EditNIM" type="LineEdit" parent="VBoxContainer/HBoxCards/Card1/VBox" unique_id=1545917142]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.16, 0.12, 1)
@@ -267,7 +267,7 @@ text = "240533607478"
 placeholder_text = "Ketik NIM"
 alignment = 1
 
-[node name="BtnPilih" type="Button" parent="VBoxContainer/HBoxCards/Card1"]
+[node name="BtnPilih" type="Button" parent="VBoxContainer/HBoxCards/Card1" unique_id=1763502022]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -283,7 +283,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 9
 text = "PILIH HERO"
 
-[node name="Card2" type="NinePatchRect" parent="VBoxContainer/HBoxCards"]
+[node name="Card2" type="NinePatchRect" parent="VBoxContainer/HBoxCards" unique_id=1269231676]
 custom_minimum_size = Vector2(175, 252)
 layout_mode = 2
 texture = ExtResource("5_parchment")
@@ -292,7 +292,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="VBox" type="VBoxContainer" parent="VBoxContainer/HBoxCards/Card2"]
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/HBoxCards/Card2" unique_id=258881047]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -306,7 +306,7 @@ grow_vertical = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="SlotAvatar" type="NinePatchRect" parent="VBoxContainer/HBoxCards/Card2/VBox"]
+[node name="SlotAvatar" type="NinePatchRect" parent="VBoxContainer/HBoxCards/Card2/VBox" unique_id=446499736]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -316,7 +316,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="Avatar" type="TextureRect" parent="VBoxContainer/HBoxCards/Card2/VBox/SlotAvatar"]
+[node name="Avatar" type="TextureRect" parent="VBoxContainer/HBoxCards/Card2/VBox/SlotAvatar" unique_id=516642415]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -332,20 +332,20 @@ texture = ExtResource("4_m3")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LabelRole" type="Label" parent="VBoxContainer/HBoxCards/Card2/VBox"]
+[node name="LabelRole" type="Label" parent="VBoxContainer/HBoxCards/Card2/VBox" unique_id=537561725]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.6, 0.3, 1)
 theme_override_font_sizes/font_size = 9
 text = "Role: Level Designer"
 horizontal_alignment = 1
 
-[node name="LabelNamaTitle" type="Label" parent="VBoxContainer/HBoxCards/Card2/VBox"]
+[node name="LabelNamaTitle" type="Label" parent="VBoxContainer/HBoxCards/Card2/VBox" unique_id=1419131285]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.25, 0.15, 1)
 theme_override_font_sizes/font_size = 8
 text = "Nama Anggota 3:"
 
-[node name="EditNama" type="LineEdit" parent="VBoxContainer/HBoxCards/Card2/VBox"]
+[node name="EditNama" type="LineEdit" parent="VBoxContainer/HBoxCards/Card2/VBox" unique_id=1400210342]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.12, 0.1, 0.08, 1)
@@ -356,13 +356,13 @@ text = "Mohammad Afton Ilman H"
 placeholder_text = "Nama Anda"
 alignment = 1
 
-[node name="LabelNIMTitle" type="Label" parent="VBoxContainer/HBoxCards/Card2/VBox"]
+[node name="LabelNIMTitle" type="Label" parent="VBoxContainer/HBoxCards/Card2/VBox" unique_id=1756515942]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35, 0.25, 0.15, 1)
 theme_override_font_sizes/font_size = 8
 text = "NIM Anggota 3:"
 
-[node name="EditNIM" type="LineEdit" parent="VBoxContainer/HBoxCards/Card2/VBox"]
+[node name="EditNIM" type="LineEdit" parent="VBoxContainer/HBoxCards/Card2/VBox" unique_id=704828665]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.16, 0.12, 1)
@@ -373,7 +373,7 @@ text = "240533608523"
 placeholder_text = "Ketik NIM"
 alignment = 1
 
-[node name="BtnPilih" type="Button" parent="VBoxContainer/HBoxCards/Card2"]
+[node name="BtnPilih" type="Button" parent="VBoxContainer/HBoxCards/Card2" unique_id=199599692]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
