@@ -254,8 +254,7 @@ func _process_chase(delta: float) -> void:
 		if chasm_leap_ray.is_colliding() and jump_timer >= 0.8:
 			# Melompat melintasi jurang mengejar pemain!
 			jump_timer = 0.0
-			velocity.y = jump_stomp_force
-			GameManager.play_sfx("res://Audio/pluck_002.ogg", 2.0, 0.8) * 0.98
+			velocity.y = jump_stomp_force * 0.98
 			velocity.x = direction * (chase_speed * 1.25)
 			GameManager.play_sfx("res://Audio/pluck_002.ogg", 2.0, 0.8)
 		else:
