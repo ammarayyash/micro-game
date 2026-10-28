@@ -60,7 +60,7 @@ func _setup_enemies() -> void:
 	_update_hud_enemies()
 
 	for enemy in enemies:
-		if enemy is Enemy:
+		if enemy.has_signal("enemy_defeated"):
 			enemy.enemy_defeated.connect(_on_enemy_defeated)
 		enemy.tree_exited.connect(func():
 			if not gate_opened:
@@ -82,7 +82,7 @@ func _update_hud_enemies() -> void:
 			label_enemies.text = "Musuh Tersisa: " + str(remaining_enemies) + " / " + str(total_enemies)
 			label_enemies.modulate = Color(1.0, 0.9, 0.4, 1.0)
 		else:
-			label_enemies.text = "✓ Semua Musuh Kalah! Gerbang Bos Terbuka!"
+			label_enemies.text = "OK Semua Musuh Kalah! Gerbang Bos Terbuka!"
 			label_enemies.modulate = Color(0.4, 1.0, 0.4, 1.0)
 
 func _open_arena_gate() -> void:
@@ -96,7 +96,7 @@ func _open_arena_gate() -> void:
 		var lbl = arena_gate.get_node_or_null("LabelGate")
 
 		if lbl is Label:
-			lbl.text = "✓ GERBANG TERBUKA!"
+			lbl.text = "OK GERBANG TERBUKA!"
 			lbl.modulate = Color(0.3, 1.0, 0.3, 1.0)
 
 		# Matikan tabrakan gerbang seketika agar pemain bisa lewat

@@ -367,7 +367,7 @@ func _defeat_boss() -> void:
 
 func _spawn_hit_sparks() -> void:
 	var spark = Label.new()
-	spark.text = "💥"
+	spark.text = "*"
 	spark.position = Vector2(randf_range(-20, 20), randf_range(-40, 10))
 	add_child(spark)
 	var tween = create_tween()
@@ -378,7 +378,7 @@ func _spawn_hit_sparks() -> void:
 func _spawn_dizzy_stars() -> void:
 	for i in range(3):
 		var star = Label.new()
-		star.text = "⭐"
+		star.text = "*"
 		star.position = Vector2(-25 + i * 20, -75)
 		add_child(star)
 		var tween = create_tween().set_loops(4)

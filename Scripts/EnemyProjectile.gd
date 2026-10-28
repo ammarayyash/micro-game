@@ -30,11 +30,11 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Enemy or body is Boss:
+	if body.is_in_group("Enemy") or body.is_in_group("Boss"):
 		return
-	if body is Player:
-		var player := body as Player
-		player.take_damage(damage, Vector2(direction * 120.0, -160.0))
+	if body.is_in_group("Player"):
+		if body.has_method("take_damage"):
+			body.take_damage(damage, Vector2(direction * 120.0, -160.0))
 		queue_free()
 	elif body is TileMap or body is StaticBody2D:
 		queue_free()

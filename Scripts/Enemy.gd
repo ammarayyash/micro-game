@@ -28,7 +28,7 @@ var is_chasing: bool = false
 const CHASE_SPEED: float = 135.0
 
 # Status Spesial Shooter (Penembak)
-var projectile_scene: PackedScene = preload("res://Scenes/Prefabs/EnemyProjectile.tscn")
+var projectile_scene: PackedScene = null
 var shoot_cooldown: float = 2.0
 var shoot_timer: float = 1.0
 var is_shooting_anim: bool = false
@@ -41,7 +41,7 @@ var anim_timer: float = 0.0
 var walk_frame: int = 0
 
 var ledge_ray: RayCast2D
-var player_ref: Player = null
+var player_ref: Node2D = null
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var head_area: Area2D = $HeadHurtbox if has_node("HeadHurtbox") else null
@@ -62,6 +62,10 @@ func _ready() -> void:
 		add_child(ledge_ray)
 	else:
 		ledge_ray = $LedgeRay
+
+	# Muat proyektil secara aman tanpa circular dependency
+	if ResourceLoader.exists("res://Scenes/Prefabs/EnemyProjectile.tscn"):
+		projectile_scene = load("res://Scenes/Prefabs/EnemyProjectile.tscn")
 
 	var base_path: String = "res://Assets/Characters/Composite/"
 	match enemy_type:
@@ -109,7 +113,7 @@ func _physics_process(delta: float) -> void:
 	if not player_ref:
 		var players = get_tree().get_nodes_in_group("Player")
 		if players.size() > 0:
-			player_ref = players[0] as Player
+			player_ref = players[0]
 
 	# Logika Perilaku Khusus per Tipe Monster
 	match enemy_type:
@@ -177,21 +181,22 @@ func _shoot_fireball() -> void:
 	is_shooting_anim = true
 	shoot_anim_timer = 0.35
 	if projectile_scene:
-		var proj = projectile_scene.instantiate() as EnemyProjectile
+		var proj = projectile_scene.instantiate()
 		var spawn_pos = global_position + Vector2(direction * 20.0, -4.0)
 		get_parent().add_child(proj)
-		proj.setup(direction, spawn_pos)
+		if proj.has_method("setup"):
+			proj.setup(direction, spawn_pos)
 
-		# Efek kilau moncong tembakan
 		_spawn_shoot_flash()
 
 func _spawn_shoot_flash() -> void:
 	var flash = Label.new()
-	flash.text = "⚡"
+	flash.text = "*"
+	flash.theme_override_colors/font_color = Color(1.0, 0.9, 0.2, 1.0)
 	flash.position = Vector2(direction * 18.0 - 5.0, -14.0)
 	add_child(flash)
 	var tween = create_tween()
-	tween.tween_property(flash, "scale", Vector2(1.5, 1.5), 0.15)
+	tween.tween_property(flash, "scale", Vector2(2.0, 2.0), 0.15)
 	tween.parallel().tween_property(flash, "modulate:a", 0.0, 0.2)
 	tween.tween_callback(flash.queue_free)
 
@@ -265,26 +270,29 @@ func _spawn_hit_spark(dmg: int) -> void:
 func _on_head_hurtbox_body_entered(body: Node2D) -> void:
 	if is_dead:
 		return
-	if body is Player:
-		var player := body as Player
-		if player.velocity.y >= -50.0:
+	if body.is_in_group("Player"):
+		var p_vel_y = body.velocity.y if "velocity" in body else 0.0
+		if p_vel_y >= -50.0:
 			if enemy_type == "hedgehog":
 				# Landak Berduri: Punggung tajam! Menginjaknya melukai player!
-				player.bounce(-200.0)
-				player.take_damage(1, Vector2(-direction * 120.0, -180.0))
+				if body.has_method("bounce"):
+					body.bounce(-200.0)
+				if body.has_method("take_damage"):
+					body.take_damage(1, Vector2(-direction * 120.0, -180.0))
 			else:
-				player.bounce(-250.0)
+				if body.has_method("bounce"):
+					body.bounce(-250.0)
 				take_damage(2)
 
 ## Deteksi jika player menabrak tubuh monster
 func _on_body_damage_area_body_entered(body: Node2D) -> void:
 	if is_dead:
 		return
-	if body is Player:
-		var player := body as Player
-		var push_dir = direction if direction != 0.0 else (1.0 if player.global_position.x > global_position.x else -1.0)
+	if body.is_in_group("Player"):
+		var push_dir = direction if direction != 0.0 else (1.0 if body.global_position.x > global_position.x else -1.0)
 		var kb_force = 160.0 if is_chasing else 110.0
-		player.take_damage(1, Vector2(push_dir * kb_force, -170.0))
+		if body.has_method("take_damage"):
+			body.take_damage(1, Vector2(push_dir * kb_force, -170.0))
 
 func die() -> void:
 	if is_dead:
@@ -304,7 +312,6 @@ func die() -> void:
 	if sfx_hit and sfx_hit.stream:
 		sfx_hit.play()
 
-	# Efek ledakan asap / bintang kekalahan
 	_spawn_defeat_puff()
 
 	# Efek tumbang & pudar
@@ -318,11 +325,12 @@ func die() -> void:
 
 func _spawn_defeat_puff() -> void:
 	var puff = Label.new()
-	puff.text = "💨"
-	puff.position = Vector2(-8, -16)
+	puff.text = "+"
+	puff.theme_override_colors/font_color = Color(1.0, 0.95, 0.8, 1.0)
+	puff.position = Vector2(-4, -16)
 	get_parent().add_child(puff)
-	puff.global_position = global_position + Vector2(-8, -16)
+	puff.global_position = global_position + Vector2(-4, -16)
 	var tween = puff.create_tween()
-	tween.tween_property(puff, "scale", Vector2(1.8, 1.8), 0.25)
+	tween.tween_property(puff, "scale", Vector2(2.0, 2.0), 0.25)
 	tween.parallel().tween_property(puff, "modulate:a", 0.0, 0.25)
 	tween.tween_callback(puff.queue_free)
