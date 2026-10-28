@@ -140,7 +140,7 @@ theme_override_colors/font_color = Color(0.12, 0.1, 0.08, 1)
 theme_override_colors/font_placeholder_color = Color(0.5, 0.45, 0.4, 0.7)
 theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_input")
-text = "Mamank (M1)"
+text = "Muhammad Ammar A"
 placeholder_text = "Nama Anda"
 alignment = 1
 
@@ -157,7 +157,7 @@ theme_override_colors/font_color = Color(0.2, 0.16, 0.12, 1)
 theme_override_colors/font_placeholder_color = Color(0.5, 0.45, 0.4, 0.7)
 theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_input")
-text = "220101001"
+text = "240533606050"
 placeholder_text = "NIM Anda"
 alignment = 1
 
@@ -246,7 +246,7 @@ theme_override_colors/font_color = Color(0.12, 0.1, 0.08, 1)
 theme_override_colors/font_placeholder_color = Color(0.5, 0.45, 0.4, 0.7)
 theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_input")
-text = "Member 2"
+text = "Habibulloh Zamzami"
 placeholder_text = "Nama Anda"
 alignment = 1
 
@@ -263,7 +263,7 @@ theme_override_colors/font_color = Color(0.2, 0.16, 0.12, 1)
 theme_override_colors/font_placeholder_color = Color(0.5, 0.45, 0.4, 0.7)
 theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_input")
-text = "220101002"
+text = "240533607478"
 placeholder_text = "Ketik NIM"
 alignment = 1
 
@@ -352,7 +352,7 @@ theme_override_colors/font_color = Color(0.12, 0.1, 0.08, 1)
 theme_override_colors/font_placeholder_color = Color(0.5, 0.45, 0.4, 0.7)
 theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_input")
-text = "Member 3"
+text = "Mohammad Afton Ilman H"
 placeholder_text = "Nama Anda"
 alignment = 1
 
@@ -369,7 +369,7 @@ theme_override_colors/font_color = Color(0.2, 0.16, 0.12, 1)
 theme_override_colors/font_placeholder_color = Color(0.5, 0.45, 0.4, 0.7)
 theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_input")
-text = "220101003"
+text = "240533608523"
 placeholder_text = "Ketik NIM"
 alignment = 1
 

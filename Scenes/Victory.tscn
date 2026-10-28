@@ -118,13 +118,13 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.18, 0.14, 0.1, 1)
 theme_override_font_sizes/font_size = 12
-text = "Nama : Mamank"
+text = "Nama : Muhammad Ammar A"
 
 [node name="LabelNIM" type="Label" parent="VBoxContainer/PanelHero/Margin/VBox/HBox/VBoxInfo"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.3, 0.25, 0.2, 1)
 theme_override_font_sizes/font_size = 11
-text = "NIM  : 220101001"
+text = "NIM  : 240533606050"
 
 [node name="LabelRole" type="Label" parent="VBoxContainer/PanelHero/Margin/VBox/HBox/VBoxInfo"]
 layout_mode = 2
