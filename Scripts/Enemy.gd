@@ -192,7 +192,7 @@ func _shoot_fireball() -> void:
 func _spawn_shoot_flash() -> void:
 	var flash = Label.new()
 	flash.text = "*"
-	flash.theme_override_colors/font_color = Color(1.0, 0.9, 0.2, 1.0)
+	flash.modulate = Color(1.0, 0.9, 0.2, 1.0)
 	flash.position = Vector2(direction * 18.0 - 5.0, -14.0)
 	add_child(flash)
 	var tween = create_tween()
@@ -258,8 +258,8 @@ func _spawn_hit_spark(dmg: int) -> void:
 	var lbl = Label.new()
 	lbl.text = "-" + str(dmg)
 	lbl.position = Vector2(randf_range(-12, 12), -26)
-	lbl.theme_override_colors/font_color = Color(1.0, 0.25, 0.25, 1.0)
-	lbl.theme_override_font_sizes/font_size = 10
+	lbl.modulate = Color(1.0, 0.25, 0.25, 1.0)
+	lbl.add_theme_font_size_override("font_size", 10)
 	add_child(lbl)
 	var tween = create_tween()
 	tween.tween_property(lbl, "position:y", lbl.position.y - 20.0, 0.3)
@@ -326,7 +326,7 @@ func die() -> void:
 func _spawn_defeat_puff() -> void:
 	var puff = Label.new()
 	puff.text = "+"
-	puff.theme_override_colors/font_color = Color(1.0, 0.95, 0.8, 1.0)
+	puff.modulate = Color(1.0, 0.95, 0.8, 1.0)
 	puff.position = Vector2(-4, -16)
 	get_parent().add_child(puff)
 	puff.global_position = global_position + Vector2(-4, -16)
