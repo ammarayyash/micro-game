@@ -129,8 +129,7 @@ func _update_animation(delta: float, direction: float) -> void:
 			if anim_sprite.sprite_frames.has_animation("attack"):
 				anim_sprite.play("attack")
 		elif not is_on_floor():
-			if anim_sprite.sprite_frames.has_animation("jump"):
-				if velocity.y > 40.0 and anim_sprite.sprite_frames.has_animation("stomp"):
+			if velocity.y > 40.0 and anim_sprite.sprite_frames.has_animation("stomp"):
 				anim_sprite.play("stomp")
 			elif anim_sprite.sprite_frames.has_animation("jump"):
 				anim_sprite.play("jump")

@@ -1,6 +1,5 @@
-[gd_scene load_steps=32 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_level_mgr"]
 [ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/brick_grey.png" id="2_brick_grey"]
 [ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/brick_red.png" id="3_brick_red"]
 [ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/lava.png" id="4_lava"]
@@ -51,29 +50,28 @@ size = Vector2(380, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pregate"]
 size = Vector2(160, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss_ground"]
-size = Vector2(820, 64)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
 size = Vector2(24, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss_ground"]
+size = Vector2(820, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
 size = Vector2(24, 420)
 
-[node name="Level2" type="Node2D"]
-script = ExtResource("1_level_mgr")
+[node name="Level2" type="Node2D" unique_id=1817376649]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." unique_id=999338922]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 tile_set = ExtResource("17_level_tileset")
 format = 2
-level_index = 2
+layer_0/tile_data = PackedInt32Array(327680, 262144, 2, 393216, 262144, 2, 327681, 262144, 2, 393217, 262144, 2, 327682, 262144, 2, 393218, 262144, 2, 327683, 262144, 2, 393219, 262144, 2, 327684, 262144, 2, 393220, 262144, 2, 262150, 262144, 2, 327686, 262144, 2, 262151, 262144, 2, 327687, 262144, 2, 262152, 262144, 2, 327688, 262144, 2, 262153, 262144, 2, 327689, 262144, 2, 262154, 262144, 2, 327690, 262144, 2, 262156, 327680, 7, 327694, 262144, 2, 393230, 262144, 2, 327695, 262144, 2, 393231, 262144, 2, 327696, 262144, 2, 393232, 262144, 2, 327697, 262144, 2, 393233, 262144, 2, 327698, 262144, 2, 393234, 262144, 2, 327699, 262144, 2, 393235, 262144, 2, 262164, 327680, 7, 196630, 524288, 3, 262166, 262144, 2, 196631, 524288, 3, 262167, 262144, 2, 196632, 524288, 3, 262168, 262144, 2, 196633, 524288, 3, 262169, 262144, 2, 196634, 524288, 3, 262170, 262144, 2, 196635, 524288, 3, 262171, 262144, 2, 262173, 327680, 7, 327710, 262144, 2, 393246, 262144, 2, 327711, 262144, 2, 393247, 262144, 2, 327712, 262144, 2, 393248, 262144, 2, 327713, 262144, 2, 393249, 262144, 2, 327714, 262144, 2, 393250, 262144, 2, 327715, 262144, 2, 393251, 262144, 2, 327716, 262144, 2, 393252, 262144, 2, 262181, 262144, 2, 327717, 262144, 2, 262182, 262144, 2, 327718, 262144, 2, 262183, 262144, 2, 327719, 262144, 2, 262184, 262144, 2, 327720, 262144, 2, 262185, 262144, 2, 327721, 262144, 2, 262187, 327680, 7, 196653, 524288, 3, 262189, 262144, 2, 196654, 524288, 3, 262190, 262144, 2, 196655, 524288, 3, 262191, 262144, 2, 196656, 524288, 3, 262192, 262144, 2, 196657, 524288, 3, 262193, 262144, 2, 196658, 524288, 3, 262194, 262144, 2, 262195, 327680, 7, 327733, 262144, 2, 393269, 262144, 2, 327734, 262144, 2, 393270, 262144, 2, 327735, 262144, 2, 393271, 262144, 2, 327736, 262144, 2, 393272, 262144, 2, 327737, 262144, 2, 393273, 262144, 2, 327738, 262144, 2, 393274, 262144, 2, 327739, 262144, 2, 393275, 262144, 2, 262204, 327680, 7, 262206, 262144, 2, 327742, 262144, 2, 262207, 262144, 2, 327743, 262144, 2, 262208, 262144, 2, 327744, 262144, 2, 262209, 262144, 2, 327745, 262144, 2, 262210, 262144, 2, 327746, 262144, 2, 262211, 262144, 2, 327747, 262144, 2, 327748, 262144, 2, 393284, 262144, 2, 327749, 262144, 2, 393285, 262144, 2, 327750, 524288, 3, 393286, 262144, 2, 327751, 524288, 3, 393287, 262144, 2, 327752, 524288, 3, 393288, 262144, 2, 327753, 524288, 3, 393289, 262144, 2, 327754, 524288, 3, 393290, 262144, 2, 327755, 524288, 3, 393291, 262144, 2, 327756, 524288, 3, 393292, 262144, 2, 327757, 524288, 3, 393293, 262144, 2, 327758, 524288, 3, 393294, 262144, 2, 327759, 524288, 3, 393295, 262144, 2, 327760, 524288, 3, 393296, 262144, 2, 458757, 327680, 2, 458758, 327680, 2, 458759, 327680, 2, 458760, 327680, 2, 458761, 327680, 2, 458762, 327680, 2, 458763, 327680, 2, 458764, 327680, 2, 458765, 327680, 2, 458772, 327680, 2, 458773, 327680, 2, 458774, 327680, 2, 458775, 327680, 2, 458776, 327680, 2, 458777, 327680, 2, 458778, 327680, 2, 458779, 327680, 2, 458780, 327680, 2, 458781, 327680, 2, 458789, 327680, 2, 458790, 327680, 2, 458791, 327680, 2, 458792, 327680, 2, 458793, 327680, 2, 458794, 327680, 2, 458795, 327680, 2, 458796, 327680, 2, 458797, 327680, 2, 458798, 327680, 2, 458799, 327680, 2, 458800, 327680, 2, 458801, 327680, 2, 458802, 327680, 2, 458803, 327680, 2, 458804, 327680, 2, 458812, 327680, 2, 458813, 327680, 2, 458814, 327680, 2, 458815, 327680, 2, 458816, 327680, 2, 458817, 327680, 2, 458818, 327680, 2, 458819, 327680, 2, 458833, 327680, 2, 458834, 327680, 2, 458835, 327680, 2, 458836, 327680, 2)
 
-[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+[node name="CanvasLayerBG" type="CanvasLayer" parent="." unique_id=889272672]
 layer = -100
 
-[node name="SkyBackground" type="ColorRect" parent="CanvasLayerBG"]
+[node name="SkyBackground" type="ColorRect" parent="CanvasLayerBG" unique_id=227016381]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -81,13 +79,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14, 0.08, 0.18, 1)
 
-[node name="CastleSilhouettes" type="ColorRect" parent="CanvasLayerBG"]
+[node name="CastleSilhouettes" type="ColorRect" parent="CanvasLayerBG" unique_id=890156203]
 offset_top = 170.0
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.18, 0.1, 0.22, 0.7)
 
-[node name="LavaGlow" type="ColorRect" parent="CanvasLayerBG"]
+[node name="LavaGlow" type="ColorRect" parent="CanvasLayerBG" unique_id=471124537]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -97,9 +95,9 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.9, 0.35, 0.2, 0.45)
 
-[node name="LavaHazard" type="Node2D" parent="."]
+[node name="LavaHazard" type="Node2D" parent="." unique_id=1154967830]
 
-[node name="LavaTiles" type="Sprite2D" parent="LavaHazard"]
+[node name="LavaTiles" type="Sprite2D" parent="LavaHazard" unique_id=1621020585]
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(2600, 355)
@@ -108,15 +106,15 @@ texture = ExtResource("4_lava")
 region_enabled = true
 region_rect = Rect2(0, 0, 11000, 64)
 
-[node name="WorldGeometry" type="Node2D" parent="."]
+[node name="WorldGeometry" type="Node2D" parent="." unique_id=1282951382]
 
-[node name="Platform1_Start" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform1_Start" type="StaticBody2D" parent="WorldGeometry" unique_id=1639264589]
 position = Vector2(160, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform1_Start"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform1_Start" unique_id=296398898]
 shape = SubResource("RectangleShape2D_p1")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform1_Start"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform1_Start" unique_id=1352771361]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -124,13 +122,13 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 128)
 
-[node name="Platform2_CastleEntry" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform2_CastleEntry" type="StaticBody2D" parent="WorldGeometry" unique_id=1812340137]
 position = Vector2(540, 312)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform2_CastleEntry"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform2_CastleEntry" unique_id=1146646151]
 shape = SubResource("RectangleShape2D_p2")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform2_CastleEntry"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform2_CastleEntry" unique_id=705044425]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -138,26 +136,26 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 720, 128)
 
-[node name="FloatingStep1" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep1" type="StaticBody2D" parent="WorldGeometry" unique_id=307164775]
 position = Vector2(790, 260)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep1" unique_id=390069159]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep1"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep1" unique_id=1880880359]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_brick_red")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform3_Chasm" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform3_Chasm" type="StaticBody2D" parent="WorldGeometry" unique_id=741378265]
 position = Vector2(1060, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform3_Chasm"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform3_Chasm" unique_id=133876732]
 shape = SubResource("RectangleShape2D_p3")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform3_Chasm"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform3_Chasm" unique_id=335741016]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -165,26 +163,26 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 760, 128)
 
-[node name="FloatingStep2" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep2" type="StaticBody2D" parent="WorldGeometry" unique_id=1486511637]
 position = Vector2(1330, 270)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep2" unique_id=1365821623]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep2"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep2" unique_id=2017506363]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_brick_red")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform4_HighTower1" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform4_HighTower1" type="StaticBody2D" parent="WorldGeometry" unique_id=1201977183]
 position = Vector2(1600, 230)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform4_HighTower1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform4_HighTower1" unique_id=678703566]
 shape = SubResource("RectangleShape2D_p4")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform4_HighTower1"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform4_HighTower1" unique_id=2128411486]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -192,26 +190,26 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 720, 128)
 
-[node name="FloatingStep3" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep3" type="StaticBody2D" parent="WorldGeometry" unique_id=1329230586]
 position = Vector2(1860, 280)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep3" unique_id=895739859]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep3"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep3" unique_id=353852610]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_brick_red")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform5_CourtyardMid" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform5_CourtyardMid" type="StaticBody2D" parent="WorldGeometry" unique_id=1359489315]
 position = Vector2(2160, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform5_CourtyardMid"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform5_CourtyardMid" unique_id=1470990585]
 shape = SubResource("RectangleShape2D_p5")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform5_CourtyardMid"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform5_CourtyardMid" unique_id=502032462]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -219,13 +217,13 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 840, 128)
 
-[node name="Platform6_CheckpointHall" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform6_CheckpointHall" type="StaticBody2D" parent="WorldGeometry" unique_id=961116004]
 position = Vector2(2520, 312)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform6_CheckpointHall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform6_CheckpointHall" unique_id=1916916175]
 shape = SubResource("RectangleShape2D_p6")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform6_CheckpointHall"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform6_CheckpointHall" unique_id=1978264816]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -233,26 +231,26 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 680, 128)
 
-[node name="FloatingStep4" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep4" type="StaticBody2D" parent="WorldGeometry" unique_id=569968940]
 position = Vector2(2760, 260)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep4" unique_id=305969389]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep4"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep4" unique_id=1946709473]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_brick_red")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform7_UpperBastion" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform7_UpperBastion" type="StaticBody2D" parent="WorldGeometry" unique_id=581185369]
 position = Vector2(3050, 220)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform7_UpperBastion"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform7_UpperBastion" unique_id=1137388758]
 shape = SubResource("RectangleShape2D_p7")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform7_UpperBastion"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform7_UpperBastion" unique_id=391857146]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -260,26 +258,26 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 760, 128)
 
-[node name="FloatingStep5" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep5" type="StaticBody2D" parent="WorldGeometry" unique_id=1204473563]
 position = Vector2(3310, 270)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep5" unique_id=1357688767]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep5"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep5" unique_id=187916906]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_brick_red")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform8_LavaChamber" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform8_LavaChamber" type="StaticBody2D" parent="WorldGeometry" unique_id=1342777765]
 position = Vector2(3600, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform8_LavaChamber"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform8_LavaChamber" unique_id=1994834730]
 shape = SubResource("RectangleShape2D_p8")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform8_LavaChamber"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform8_LavaChamber" unique_id=1253862466]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -287,26 +285,26 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 840, 128)
 
-[node name="FloatingStep6" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep6" type="StaticBody2D" parent="WorldGeometry" unique_id=130194857]
 position = Vector2(3890, 270)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep6" unique_id=381668424]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep6"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep6" unique_id=326670397]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_brick_red")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform9_RoyalAntechamber" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform9_RoyalAntechamber" type="StaticBody2D" parent="WorldGeometry" unique_id=1604614056]
 position = Vector2(4160, 312)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform9_RoyalAntechamber"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform9_RoyalAntechamber" unique_id=1295296872]
 shape = SubResource("RectangleShape2D_p9")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform9_RoyalAntechamber"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform9_RoyalAntechamber" unique_id=1046273219]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -314,13 +312,13 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 760, 128)
 
-[node name="Platform10_PreGate" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform10_PreGate" type="StaticBody2D" parent="WorldGeometry" unique_id=1755821855]
 position = Vector2(4420, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform10_PreGate"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform10_PreGate" unique_id=103133222]
 shape = SubResource("RectangleShape2D_pregate")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform10_PreGate"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform10_PreGate" unique_id=2060379652]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -328,36 +326,36 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 320, 128)
 
-[node name="ArenaGate" type="StaticBody2D" parent="WorldGeometry"]
+[node name="ArenaGate" type="StaticBody2D" parent="WorldGeometry" unique_id=1320005022]
 position = Vector2(4480, 220)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/ArenaGate"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/ArenaGate" unique_id=940808502]
 shape = SubResource("RectangleShape2D_gate")
 
-[node name="GateVisual" type="ColorRect" parent="WorldGeometry/ArenaGate"]
+[node name="GateVisual" type="ColorRect" parent="WorldGeometry/ArenaGate" unique_id=1336009240]
 offset_left = -12.0
 offset_top = -75.0
 offset_right = 12.0
 offset_bottom = 75.0
 color = Color(0.75, 0.15, 0.25, 0.95)
 
-[node name="LabelGate" type="Label" parent="WorldGeometry/ArenaGate"]
+[node name="LabelGate" type="Label" parent="WorldGeometry/ArenaGate" unique_id=1686365491]
 offset_left = -70.0
 offset_top = -96.0
 offset_right = 70.0
 offset_bottom = -76.0
-theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
 theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
 text = "GERBANG BOS AKHIR"
 horizontal_alignment = 1
 
-[node name="Platform11_GrandThroneRoom" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform11_GrandThroneRoom" type="StaticBody2D" parent="WorldGeometry" unique_id=454450459]
 position = Vector2(4850, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform11_GrandThroneRoom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform11_GrandThroneRoom" unique_id=1663444393]
 shape = SubResource("RectangleShape2D_boss_ground")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform11_GrandThroneRoom"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform11_GrandThroneRoom" unique_id=49217724]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -365,85 +363,90 @@ texture = ExtResource("2_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 1640, 128)
 
-[node name="LeftWall" type="StaticBody2D" parent="WorldGeometry"]
+[node name="LeftWall" type="StaticBody2D" parent="WorldGeometry" unique_id=1279858904]
 position = Vector2(-12, 180)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/LeftWall" unique_id=636308444]
 shape = SubResource("RectangleShape2D_wall")
 
-
-[node name="RightWall" type="StaticBody2D" parent="WorldGeometry"]
+[node name="RightWall" type="StaticBody2D" parent="WorldGeometry" unique_id=851407083]
 position = Vector2(5250, 180)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/RightWall" unique_id=1498378211]
 shape = SubResource("RectangleShape2D_wall")
 
-[node name="Player" parent="." instance=ExtResource("5_player_prefab")]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2147185598 instance=ExtResource("5_player_prefab")]
 position = Vector2(70, 275)
+collision_layer = 2
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1111844865]
 limit_left = 0
 limit_top = 0
 limit_right = 5240
 limit_bottom = 360
 position_smoothing_enabled = true
 
-[node name="EnemyZombie1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyZombie1" type="CharacterBody2D" parent="." unique_id=1658211506 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(540, 260)
-enemy_type = "zombie"
+collision_layer = 4
 
-[node name="EnemySkeleton1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemySkeleton1" type="CharacterBody2D" parent="." unique_id=176134350 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(1060, 275)
-enemy_type = "skeleton"
+collision_layer = 4
 
-[node name="EnemyShooter1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyShooter1" type="CharacterBody2D" parent="." unique_id=1149451763 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(1600, 175)
-enemy_type = "shooter"
+collision_layer = 4
 
-[node name="EnemyChaser1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyChaser1" type="CharacterBody2D" parent="." unique_id=1626731868 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(2160, 275)
-enemy_type = "chaser"
+collision_layer = 4
 
-[node name="CheckPoint" parent="." instance=ExtResource("8_cp_prefab")]
+[node name="CheckPoint" type="Area2D" parent="." unique_id=81475949 instance=ExtResource("8_cp_prefab")]
 position = Vector2(2460, 260)
+collision_layer = 0
+collision_mask = 2
 
-[node name="EnemyHedgehog1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyHedgehog1" type="CharacterBody2D" parent="." unique_id=1954322661 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(2600, 260)
-enemy_type = "hedgehog"
+collision_layer = 4
 
-[node name="EnemyShooter2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyShooter2" type="CharacterBody2D" parent="." unique_id=1522216923 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(3050, 165)
-enemy_type = "shooter"
+collision_layer = 4
 
-[node name="EnemyChaser2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyChaser2" type="CharacterBody2D" parent="." unique_id=1539213195 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(3560, 275)
-enemy_type = "chaser"
+collision_layer = 4
 
-[node name="EnemyZombie2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyZombie2" type="CharacterBody2D" parent="." unique_id=1068983449 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(3720, 275)
-enemy_type = "zombie"
+collision_layer = 4
 
-[node name="EnemySkeleton2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemySkeleton2" type="CharacterBody2D" parent="." unique_id=1701324313 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(4100, 260)
-enemy_type = "skeleton"
+collision_layer = 4
 
-[node name="EnemyHedgehog2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyHedgehog2" type="CharacterBody2D" parent="." unique_id=2100762191 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(4240, 260)
-enemy_type = "hedgehog"
+collision_layer = 4
 
-[node name="Boss" parent="." instance=ExtResource("6_boss_prefab")]
+[node name="Boss" type="CharacterBody2D" parent="." unique_id=861683290 instance=ExtResource("6_boss_prefab")]
 position = Vector2(4850, 230)
-level_index = 2
+collision_layer = 4
 
-[node name="GoalDoor" parent="." instance=ExtResource("9_door_prefab")]
+[node name="GoalDoor" type="Area2D" parent="." unique_id=1384342354 instance=ExtResource("9_door_prefab")]
 position = Vector2(5190, 275)
-target_level = 3
+collision_layer = 0
+collision_mask = 2
 
-[node name="ProfilePopup" parent="." instance=ExtResource("10_popup_prefab")]
+[node name="ProfilePopup" type="CanvasLayer" parent="." unique_id=1674615978 instance=ExtResource("10_popup_prefab")]
+process_mode = 3
+layer = 100
 
-[node name="CanvasLayerHUD" type="CanvasLayer" parent="."]
+[node name="CanvasLayerHUD" type="CanvasLayer" parent="." unique_id=906617511]
 
-[node name="HUDPanel" type="NinePatchRect" parent="CanvasLayerHUD"]
+[node name="HUDPanel" type="NinePatchRect" parent="CanvasLayerHUD" unique_id=1571589492]
 offset_left = 12.0
 offset_top = 8.0
 offset_right = 230.0
@@ -454,7 +457,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayerHUD/HUDPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayerHUD/HUDPanel" unique_id=966280327]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -466,52 +469,52 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 6
 
-[node name="VBox" type="VBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer"]
+[node name="VBox" type="VBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer" unique_id=278950586]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="HBoxHP" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox"]
+[node name="HBoxHP" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox" unique_id=195872545]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="LabelHPTitle" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP"]
+[node name="LabelHPTitle" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP" unique_id=771752672]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.25, 0.16, 0.08, 1)
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.25, 0.16, 0.08, 1)
 text = "DARAH:"
 
-[node name="Hearts" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP"]
+[node name="Hearts" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP" unique_id=1600913938]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Heart1" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+[node name="Heart1" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts" unique_id=1414399732]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("14_heart")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Heart2" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+[node name="Heart2" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts" unique_id=799302584]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("14_heart")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Heart3" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+[node name="Heart3" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts" unique_id=1836357659]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("14_heart")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LabelEnemies" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox"]
+[node name="LabelEnemies" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox" unique_id=110384347]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.28, 0.18, 0.1, 1)
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.28, 0.18, 0.1, 1)
 text = "Musuh Tersisa: 10 / 10"
 
-[node name="WeaponsPanel" type="NinePatchRect" parent="CanvasLayerHUD"]
+[node name="WeaponsPanel" type="NinePatchRect" parent="CanvasLayerHUD" unique_id=2100412359]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -526,7 +529,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="HBox" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel"]
+[node name="HBox" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel" unique_id=1722803690]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -540,11 +543,11 @@ grow_vertical = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="SlotMelee" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox"]
+[node name="SlotMelee" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox" unique_id=2027919234]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee"]
+[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee" unique_id=1871720433]
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
 texture = ExtResource("13_ui_slot")
@@ -553,7 +556,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee/SlotFrame"]
+[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee/SlotFrame" unique_id=1492891944]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -570,17 +573,18 @@ texture = ExtResource("15_sword_icon")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee"]
+[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee" unique_id=1090520032]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.2, 0.15, 0.08, 1)
 theme_override_font_sizes/font_size = 8
-text = "[Z] TEBAS\n2 DMG"
+theme_override_colors/font_color = Color(0.2, 0.15, 0.08, 1)
+text = "[Z] TEBAS
+2 DMG"
 
-[node name="SlotRanged" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox"]
+[node name="SlotRanged" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox" unique_id=1669812472]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged"]
+[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged" unique_id=1875324074]
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
 texture = ExtResource("13_ui_slot")
@@ -589,7 +593,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged/SlotFrame"]
+[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged/SlotFrame" unique_id=1719387286]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -606,13 +610,14 @@ texture = ExtResource("16_beam_icon")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged"]
+[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged" unique_id=1273002742]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.1, 0.25, 0.45, 1)
 theme_override_font_sizes/font_size = 8
-text = "[X] GELOMBANG\n1 DMG"
+theme_override_colors/font_color = Color(0.1, 0.25, 0.45, 1)
+text = "[X] GELOMBANG
+1 DMG"
 
-[node name="BottomControls" type="NinePatchRect" parent="CanvasLayerHUD"]
+[node name="BottomControls" type="NinePatchRect" parent="CanvasLayerHUD" unique_id=2035000029]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -629,15 +634,15 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="LabelControls" type="Label" parent="CanvasLayerHUD/BottomControls"]
+[node name="LabelControls" type="Label" parent="CanvasLayerHUD/BottomControls" unique_id=471407158]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.95)
 theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(1, 1, 1, 0.95)
 text = "LEVEL 2: KASTIL BOS AKHIR | [A/D] Gerak | [SPASI] Lompat | [Z] Tebas Melee (2 DMG) | [X] Gelombang Pedang (1 DMG)"
 horizontal_alignment = 1
 vertical_alignment = 1

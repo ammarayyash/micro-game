@@ -1,8 +1,6 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_level_mgr"]
 [ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/dirt_grass.png" id="2_dirt_grass"]
-[ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/dirt.png" id="3_dirt"]
 [ext_resource type="Texture2D" path="res://Assets/Environment/Tiles/brick_grey.png" id="4_brick_grey"]
 [ext_resource type="PackedScene" path="res://Scenes/Prefabs/Player.tscn" id="5_player_prefab"]
 [ext_resource type="PackedScene" path="res://Scenes/Prefabs/Boss.tscn" id="6_boss_prefab"]
@@ -45,29 +43,28 @@ size = Vector2(400, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pregate"]
 size = Vector2(160, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss_ground"]
-size = Vector2(500, 64)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gate"]
 size = Vector2(24, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boss_ground"]
+size = Vector2(500, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
 size = Vector2(24, 400)
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_level_mgr")
+[node name="Level1" type="Node2D" unique_id=1887361022]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." unique_id=1548179752]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 tile_set = ExtResource("17_level_tileset")
 format = 2
-level_index = 1
+layer_0/tile_data = PackedInt32Array(327680, 458752, 4, 393216, 458752, 5, 327681, 458752, 4, 393217, 458752, 5, 327682, 458752, 4, 393218, 458752, 5, 327683, 458752, 4, 393219, 458752, 5, 327684, 458752, 4, 393220, 458752, 5, 262150, 458752, 4, 327686, 458752, 5, 262151, 458752, 4, 327687, 458752, 5, 262152, 458752, 4, 327688, 458752, 5, 262153, 458752, 4, 327689, 458752, 5, 262154, 458752, 4, 327690, 458752, 5, 262155, 262144, 2, 327692, 458752, 4, 393228, 458752, 5, 327693, 458752, 4, 393229, 458752, 5, 327694, 458752, 4, 393230, 458752, 5, 327695, 458752, 4, 393231, 458752, 5, 327696, 458752, 4, 393232, 458752, 5, 327697, 458752, 4, 393233, 458752, 5, 262162, 262144, 2, 327700, 458752, 4, 393236, 458752, 5, 327701, 458752, 4, 393237, 458752, 5, 327702, 458752, 4, 393238, 458752, 5, 327703, 458752, 4, 393239, 458752, 5, 327704, 458752, 4, 393240, 458752, 5, 327705, 458752, 4, 393241, 458752, 5, 327706, 458752, 4, 393242, 458752, 5, 262171, 262144, 2, 196636, 458752, 4, 262172, 458752, 5, 196637, 458752, 4, 262173, 458752, 5, 196638, 458752, 4, 262174, 458752, 5, 196639, 458752, 4, 262175, 458752, 5, 196640, 458752, 4, 262176, 458752, 5, 327713, 458752, 4, 393249, 458752, 5, 327714, 458752, 4, 393250, 458752, 5, 327715, 458752, 4, 393251, 458752, 5, 327716, 458752, 4, 393252, 458752, 5, 327717, 458752, 4, 393253, 458752, 5, 327718, 458752, 4, 393254, 458752, 5, 327719, 458752, 4, 393255, 458752, 5, 262185, 262144, 2, 262186, 458752, 4, 327722, 458752, 5, 262187, 458752, 4, 327723, 458752, 5, 262188, 458752, 4, 327724, 458752, 5, 262189, 458752, 4, 327725, 458752, 5, 262190, 458752, 4, 327726, 458752, 5, 262191, 458752, 4, 327727, 458752, 5, 262192, 458752, 4, 327728, 458752, 5, 262194, 262144, 2, 262195, 458752, 4, 327731, 458752, 5, 262196, 458752, 4, 327732, 458752, 5, 262197, 458752, 4, 327733, 458752, 5, 262198, 458752, 4, 327734, 458752, 5, 262199, 458752, 4, 327735, 458752, 5, 262200, 458752, 4, 327736, 458752, 5, 327737, 458752, 4, 393273, 458752, 5, 327738, 458752, 4, 393274, 458752, 5, 327739, 458752, 4, 393275, 458752, 5, 327740, 458752, 4, 393276, 458752, 5, 327741, 458752, 4, 393277, 458752, 5, 327742, 458752, 4, 393278, 458752, 5, 327743, 458752, 4, 393279, 458752, 5, 327744, 458752, 4, 393280, 458752, 5, 327745, 458752, 4, 393281, 458752, 5, 327746, 458752, 4, 393282, 458752, 5)
 
-[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+[node name="CanvasLayerBG" type="CanvasLayer" parent="." unique_id=1805025400]
 layer = -10
 
-[node name="Sky" type="ColorRect" parent="CanvasLayerBG"]
+[node name="Sky" type="ColorRect" parent="CanvasLayerBG" unique_id=667333137]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -75,22 +72,22 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.35, 0.65, 0.9, 1)
 
-[node name="Sun" type="ColorRect" parent="CanvasLayerBG"]
+[node name="Sun" type="ColorRect" parent="CanvasLayerBG" unique_id=465070634]
 offset_left = 540.0
 offset_top = 24.0
 offset_right = 588.0
 offset_bottom = 72.0
 color = Color(1, 0.92, 0.4, 1)
 
-[node name="WorldGeometry" type="Node2D" parent="."]
+[node name="WorldGeometry" type="Node2D" parent="." unique_id=1974020944]
 
-[node name="Platform1_Start" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform1_Start" type="StaticBody2D" parent="WorldGeometry" unique_id=1296252467]
 position = Vector2(160, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform1_Start"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform1_Start" unique_id=409331582]
 shape = SubResource("RectangleShape2D_p1")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform1_Start"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform1_Start" unique_id=1200771120]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -98,13 +95,13 @@ texture = ExtResource("2_dirt_grass")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 128)
 
-[node name="Platform2" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform2" type="StaticBody2D" parent="WorldGeometry" unique_id=1830062487]
 position = Vector2(520, 312)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform2" unique_id=1468478363]
 shape = SubResource("RectangleShape2D_p2")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform2"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform2" unique_id=1440689916]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -112,13 +109,13 @@ texture = ExtResource("2_dirt_grass")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 128)
 
-[node name="FloatingStep1" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep1" type="StaticBody2D" parent="WorldGeometry" unique_id=910737983]
 position = Vector2(740, 260)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep1" unique_id=1637377023]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep1"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep1" unique_id=1259076936]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -126,13 +123,13 @@ texture = ExtResource("4_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform3" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform3" type="StaticBody2D" parent="WorldGeometry" unique_id=516463427]
 position = Vector2(960, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform3" unique_id=528397960]
 shape = SubResource("RectangleShape2D_p3")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform3"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform3" unique_id=2054146837]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -140,13 +137,13 @@ texture = ExtResource("2_dirt_grass")
 region_enabled = true
 region_rect = Rect2(0, 0, 680, 128)
 
-[node name="FloatingStep2" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep2" type="StaticBody2D" parent="WorldGeometry" unique_id=959603222]
 position = Vector2(1190, 260)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep2" unique_id=965216524]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep2"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep2" unique_id=227115324]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -154,13 +151,13 @@ texture = ExtResource("4_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform4_Valley" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform4_Valley" type="StaticBody2D" parent="WorldGeometry" unique_id=1676096026]
 position = Vector2(1480, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform4_Valley"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform4_Valley" unique_id=1372105019]
 shape = SubResource("RectangleShape2D_p4")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform4_Valley"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform4_Valley" unique_id=1859445062]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -168,13 +165,13 @@ texture = ExtResource("2_dirt_grass")
 region_enabled = true
 region_rect = Rect2(0, 0, 920, 128)
 
-[node name="FloatingStep3" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep3" type="StaticBody2D" parent="WorldGeometry" unique_id=322285795]
 position = Vector2(1770, 260)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep3" unique_id=1736974294]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep3"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep3" unique_id=552294359]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -182,13 +179,13 @@ texture = ExtResource("4_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform5_SniperPerch" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform5_SniperPerch" type="StaticBody2D" parent="WorldGeometry" unique_id=1215309987]
 position = Vector2(1960, 240)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform5_SniperPerch"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform5_SniperPerch" unique_id=772921974]
 shape = SubResource("RectangleShape2D_perch")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform5_SniperPerch"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform5_SniperPerch" unique_id=844852187]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -196,13 +193,13 @@ texture = ExtResource("4_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 560, 128)
 
-[node name="Platform6_CheckPointGround" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform6_CheckPointGround" type="StaticBody2D" parent="WorldGeometry" unique_id=1554140467]
 position = Vector2(2360, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform6_CheckPointGround"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform6_CheckPointGround" unique_id=1949150912]
 shape = SubResource("RectangleShape2D_p4")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform6_CheckPointGround"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform6_CheckPointGround" unique_id=1934913374]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -210,13 +207,13 @@ texture = ExtResource("2_dirt_grass")
 region_enabled = true
 region_rect = Rect2(0, 0, 920, 128)
 
-[node name="FloatingStep4" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep4" type="StaticBody2D" parent="WorldGeometry" unique_id=1951733208]
 position = Vector2(2650, 260)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep4" unique_id=1192224666]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep4"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep4" unique_id=40131585]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -224,13 +221,13 @@ texture = ExtResource("4_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform7_Cavern" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform7_Cavern" type="StaticBody2D" parent="WorldGeometry" unique_id=1641079676]
 position = Vector2(2920, 312)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform7_Cavern"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform7_Cavern" unique_id=1823918442]
 shape = SubResource("RectangleShape2D_p7")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform7_Cavern"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform7_Cavern" unique_id=2129584534]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -238,13 +235,13 @@ texture = ExtResource("2_dirt_grass")
 region_enabled = true
 region_rect = Rect2(0, 0, 840, 128)
 
-[node name="FloatingStep5" type="StaticBody2D" parent="WorldGeometry"]
+[node name="FloatingStep5" type="StaticBody2D" parent="WorldGeometry" unique_id=210205692]
 position = Vector2(3200, 250)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/FloatingStep5" unique_id=680463671]
 shape = SubResource("RectangleShape2D_step")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep5"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/FloatingStep5" unique_id=836537404]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -252,13 +249,13 @@ texture = ExtResource("4_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 48)
 
-[node name="Platform8_FortressOutpost" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform8_FortressOutpost" type="StaticBody2D" parent="WorldGeometry" unique_id=1437852705]
 position = Vector2(3450, 312)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform8_FortressOutpost"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform8_FortressOutpost" unique_id=1509571433]
 shape = SubResource("RectangleShape2D_p8")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform8_FortressOutpost"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform8_FortressOutpost" unique_id=1277567250]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -266,13 +263,13 @@ texture = ExtResource("4_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 800, 128)
 
-[node name="Platform9_PreGate" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform9_PreGate" type="StaticBody2D" parent="WorldGeometry" unique_id=79668040]
 position = Vector2(3730, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform9_PreGate"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform9_PreGate" unique_id=203385229]
 shape = SubResource("RectangleShape2D_pregate")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform9_PreGate"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform9_PreGate" unique_id=1739888003]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -280,36 +277,36 @@ texture = ExtResource("2_dirt_grass")
 region_enabled = true
 region_rect = Rect2(0, 0, 320, 128)
 
-[node name="ArenaGate" type="StaticBody2D" parent="WorldGeometry"]
+[node name="ArenaGate" type="StaticBody2D" parent="WorldGeometry" unique_id=147125408]
 position = Vector2(3790, 220)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/ArenaGate"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/ArenaGate" unique_id=45703830]
 shape = SubResource("RectangleShape2D_gate")
 
-[node name="GateVisual" type="ColorRect" parent="WorldGeometry/ArenaGate"]
+[node name="GateVisual" type="ColorRect" parent="WorldGeometry/ArenaGate" unique_id=2090263984]
 offset_left = -12.0
 offset_top = -75.0
 offset_right = 12.0
 offset_bottom = 75.0
 color = Color(0.85, 0.22, 0.22, 0.95)
 
-[node name="LabelGate" type="Label" parent="WorldGeometry/ArenaGate"]
+[node name="LabelGate" type="Label" parent="WorldGeometry/ArenaGate" unique_id=2087363286]
 offset_left = -60.0
 offset_top = -96.0
 offset_right = 60.0
 offset_bottom = -76.0
-theme_override_colors/font_color = Color(1, 0.92, 0.4, 1)
 theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(1, 0.92, 0.4, 1)
 text = "GERBANG BOS"
 horizontal_alignment = 1
 
-[node name="Platform10_BossArena" type="StaticBody2D" parent="WorldGeometry"]
+[node name="Platform10_BossArena" type="StaticBody2D" parent="WorldGeometry" unique_id=935462528]
 position = Vector2(4050, 328)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform10_BossArena"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/Platform10_BossArena" unique_id=1316301135]
 shape = SubResource("RectangleShape2D_boss_ground")
 
-[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform10_BossArena"]
+[node name="Tiles" type="Sprite2D" parent="WorldGeometry/Platform10_BossArena" unique_id=827722053]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(0.5, 0.5)
@@ -317,84 +314,90 @@ texture = ExtResource("4_brick_grey")
 region_enabled = true
 region_rect = Rect2(0, 0, 1000, 128)
 
-[node name="LeftWall" type="StaticBody2D" parent="WorldGeometry"]
+[node name="LeftWall" type="StaticBody2D" parent="WorldGeometry" unique_id=1561939731]
 position = Vector2(-12, 180)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/LeftWall" unique_id=1980210117]
 shape = SubResource("RectangleShape2D_wall")
 
-[node name="RightWall" type="StaticBody2D" parent="WorldGeometry"]
+[node name="RightWall" type="StaticBody2D" parent="WorldGeometry" unique_id=1246830442]
 position = Vector2(4290, 180)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldGeometry/RightWall" unique_id=1924024300]
 shape = SubResource("RectangleShape2D_wall")
 
-[node name="Player" parent="." instance=ExtResource("5_player_prefab")]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=977882368 instance=ExtResource("5_player_prefab")]
 position = Vector2(70, 275)
+collision_layer = 2
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1557740555]
 limit_left = 0
 limit_top = 0
 limit_right = 4280
 limit_bottom = 360
 position_smoothing_enabled = true
 
-[node name="EnemyZombie1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyZombie1" type="CharacterBody2D" parent="." unique_id=859225351 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(520, 260)
-enemy_type = "zombie"
+collision_layer = 4
 
-[node name="EnemySkeleton1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemySkeleton1" type="CharacterBody2D" parent="." unique_id=1925571188 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(960, 275)
-enemy_type = "skeleton"
+collision_layer = 4
 
-[node name="EnemyBoar1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyBoar1" type="CharacterBody2D" parent="." unique_id=1989582228 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(1420, 275)
-enemy_type = "chaser"
+collision_layer = 4
 
-[node name="EnemyZombie2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyZombie2" type="CharacterBody2D" parent="." unique_id=1140283209 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(1600, 275)
-enemy_type = "zombie"
+collision_layer = 4
 
-[node name="EnemyShooter1" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyShooter1" type="CharacterBody2D" parent="." unique_id=1180902441 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(1960, 185)
-enemy_type = "shooter"
+collision_layer = 4
 
-[node name="CheckPoint" parent="." instance=ExtResource("8_cp_prefab")]
+[node name="CheckPoint" type="Area2D" parent="." unique_id=1864770821 instance=ExtResource("8_cp_prefab")]
 position = Vector2(2180, 296)
+collision_layer = 0
+collision_mask = 2
 
-[node name="EnemySkeleton2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemySkeleton2" type="CharacterBody2D" parent="." unique_id=507187962 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(2450, 275)
-enemy_type = "skeleton"
+collision_layer = 4
 
-[node name="EnemyBoar2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyBoar2" type="CharacterBody2D" parent="." unique_id=1064506535 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(2860, 260)
-enemy_type = "chaser"
+collision_layer = 4
 
-[node name="EnemyZombie3" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyZombie3" type="CharacterBody2D" parent="." unique_id=1004269143 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(3040, 260)
-enemy_type = "zombie"
+collision_layer = 4
 
-[node name="EnemyShooter2" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemyShooter2" type="CharacterBody2D" parent="." unique_id=1302399841 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(3380, 255)
-enemy_type = "shooter"
+collision_layer = 4
 
-[node name="EnemySkeleton3" parent="." instance=ExtResource("7_enemy_prefab")]
+[node name="EnemySkeleton3" type="CharacterBody2D" parent="." unique_id=725483594 instance=ExtResource("7_enemy_prefab")]
 position = Vector2(3540, 260)
-enemy_type = "skeleton"
+collision_layer = 4
 
-[node name="Boss" parent="." instance=ExtResource("6_boss_prefab")]
+[node name="Boss" type="CharacterBody2D" parent="." unique_id=497827544 instance=ExtResource("6_boss_prefab")]
 position = Vector2(4000, 230)
-level_index = 1
+collision_layer = 4
 
-[node name="GoalDoor" parent="." instance=ExtResource("9_door_prefab")]
+[node name="GoalDoor" type="Area2D" parent="." unique_id=663478741 instance=ExtResource("9_door_prefab")]
 position = Vector2(4230, 275)
-target_level = 2
+collision_layer = 0
+collision_mask = 2
 
-[node name="ProfilePopup" parent="." instance=ExtResource("10_popup_prefab")]
+[node name="ProfilePopup" type="CanvasLayer" parent="." unique_id=1024894148 instance=ExtResource("10_popup_prefab")]
+process_mode = 3
+layer = 100
 
-[node name="CanvasLayerHUD" type="CanvasLayer" parent="."]
+[node name="CanvasLayerHUD" type="CanvasLayer" parent="." unique_id=50216187]
 
-[node name="HUDPanel" type="NinePatchRect" parent="CanvasLayerHUD"]
+[node name="HUDPanel" type="NinePatchRect" parent="CanvasLayerHUD" unique_id=468972701]
 offset_left = 12.0
 offset_top = 8.0
 offset_right = 230.0
@@ -405,7 +408,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayerHUD/HUDPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayerHUD/HUDPanel" unique_id=1456899362]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -417,52 +420,52 @@ theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 6
 
-[node name="VBox" type="VBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer"]
+[node name="VBox" type="VBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer" unique_id=2032082529]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="HBoxHP" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox"]
+[node name="HBoxHP" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox" unique_id=1509221408]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="LabelHPTitle" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP"]
+[node name="LabelHPTitle" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP" unique_id=948858373]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.25, 0.16, 0.08, 1)
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.25, 0.16, 0.08, 1)
 text = "DARAH:"
 
-[node name="Hearts" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP"]
+[node name="Hearts" type="HBoxContainer" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP" unique_id=276975813]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Heart1" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+[node name="Heart1" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts" unique_id=1016709472]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("14_heart")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Heart2" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+[node name="Heart2" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts" unique_id=1383772310]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("14_heart")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Heart3" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts"]
+[node name="Heart3" type="TextureRect" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox/HBoxHP/Hearts" unique_id=2126694967]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
 texture = ExtResource("14_heart")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LabelEnemies" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox"]
+[node name="LabelEnemies" type="Label" parent="CanvasLayerHUD/HUDPanel/MarginContainer/VBox" unique_id=199039120]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.28, 0.18, 0.1, 1)
 theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.28, 0.18, 0.1, 1)
 text = "Musuh Tersisa: 10 / 10"
 
-[node name="WeaponsPanel" type="NinePatchRect" parent="CanvasLayerHUD"]
+[node name="WeaponsPanel" type="NinePatchRect" parent="CanvasLayerHUD" unique_id=1432819003]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -477,7 +480,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="HBox" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel"]
+[node name="HBox" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel" unique_id=485631629]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -491,11 +494,11 @@ grow_vertical = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="SlotMelee" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox"]
+[node name="SlotMelee" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox" unique_id=19849451]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee"]
+[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee" unique_id=1612401229]
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
 texture = ExtResource("13_ui_slot")
@@ -504,7 +507,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee/SlotFrame"]
+[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee/SlotFrame" unique_id=122009914]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -521,17 +524,18 @@ texture = ExtResource("15_sword_icon")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee"]
+[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotMelee" unique_id=121228585]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.2, 0.15, 0.08, 1)
 theme_override_font_sizes/font_size = 8
-text = "[Z] TEBAS\n2 DMG"
+theme_override_colors/font_color = Color(0.2, 0.15, 0.08, 1)
+text = "[Z] TEBAS
+2 DMG"
 
-[node name="SlotRanged" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox"]
+[node name="SlotRanged" type="HBoxContainer" parent="CanvasLayerHUD/WeaponsPanel/HBox" unique_id=383763623]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged"]
+[node name="SlotFrame" type="NinePatchRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged" unique_id=13600277]
 custom_minimum_size = Vector2(34, 34)
 layout_mode = 2
 texture = ExtResource("13_ui_slot")
@@ -540,7 +544,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged/SlotFrame"]
+[node name="Icon" type="TextureRect" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged/SlotFrame" unique_id=1064516139]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -557,13 +561,14 @@ texture = ExtResource("16_beam_icon")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged"]
+[node name="Label" type="Label" parent="CanvasLayerHUD/WeaponsPanel/HBox/SlotRanged" unique_id=726489896]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.1, 0.25, 0.45, 1)
 theme_override_font_sizes/font_size = 8
-text = "[X] GELOMBANG\n1 DMG"
+theme_override_colors/font_color = Color(0.1, 0.25, 0.45, 1)
+text = "[X] GELOMBANG
+1 DMG"
 
-[node name="BottomControls" type="NinePatchRect" parent="CanvasLayerHUD"]
+[node name="BottomControls" type="NinePatchRect" parent="CanvasLayerHUD" unique_id=1786245853]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -580,15 +585,15 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="LabelControls" type="Label" parent="CanvasLayerHUD/BottomControls"]
+[node name="LabelControls" type="Label" parent="CanvasLayerHUD/BottomControls" unique_id=1064019767]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.95)
 theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(1, 1, 1, 0.95)
 text = "[A/D] Jalan | [SPASI] Lompat Tinggi | [Z/J/Klik Kiri] Tebas Pedang (2 DMG) | [X/K/Klik Kanan] Gelombang Pedang (1 DMG)"
 horizontal_alignment = 1
 vertical_alignment = 1
