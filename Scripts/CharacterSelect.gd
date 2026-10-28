@@ -36,6 +36,10 @@ func _ready() -> void:
 	edit_nama_2.text_changed.connect(func(val): GameManager.update_member_info(2, val, edit_nim_2.text))
 	edit_nim_2.text_changed.connect(func(val): GameManager.update_member_info(2, edit_nama_2.text, val))
 
+	btn_char_0.mouse_entered.connect(func(): GameManager.play_sfx("res://Audio/select_001.ogg", -4.0))
+	btn_char_1.mouse_entered.connect(func(): GameManager.play_sfx("res://Audio/select_001.ogg", -4.0))
+	btn_char_2.mouse_entered.connect(func(): GameManager.play_sfx("res://Audio/select_001.ogg", -4.0))
+
 	btn_char_0.pressed.connect(func(): _on_select(0))
 	btn_char_1.pressed.connect(func(): _on_select(1))
 	btn_char_2.pressed.connect(func(): _on_select(2))
@@ -50,4 +54,5 @@ func _save_inputs_to_gamemanager() -> void:
 
 func _on_select(char_id: int) -> void:
 	_save_inputs_to_gamemanager()
+	GameManager.play_sfx("res://Audio/confirmation_001.ogg", 2.0)
 	GameManager.start_game(char_id)

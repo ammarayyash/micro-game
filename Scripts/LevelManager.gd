@@ -89,6 +89,7 @@ func _open_arena_gate() -> void:
 	if gate_opened:
 		return
 	gate_opened = true
+	GameManager.play_sfx("res://Audio/doorOpen_1.ogg", 3.0)
 
 	if arena_gate:
 		var col = arena_gate.get_node_or_null("CollisionShape2D")

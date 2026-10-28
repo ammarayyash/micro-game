@@ -208,6 +208,7 @@ func _process_patrol(delta: float) -> void:
 				jump_timer = 0.0
 				velocity.y = jump_stomp_force * 0.95
 				velocity.x = direction * patrol_speed * 1.3
+				GameManager.play_sfx("res://Audio/pluck_002.ogg", 2.0, 0.8)
 			else:
 				# Jurang terlalu lebar / tidak ada daratan -> putar balik agar tidak jatuh!
 				direction *= -1.0
@@ -253,8 +254,10 @@ func _process_chase(delta: float) -> void:
 		if chasm_leap_ray.is_colliding() and jump_timer >= 0.8:
 			# Melompat melintasi jurang mengejar pemain!
 			jump_timer = 0.0
-			velocity.y = jump_stomp_force * 0.98
+			velocity.y = jump_stomp_force
+			GameManager.play_sfx("res://Audio/pluck_002.ogg", 2.0, 0.8) * 0.98
 			velocity.x = direction * (chase_speed * 1.25)
+			GameManager.play_sfx("res://Audio/pluck_002.ogg", 2.0, 0.8)
 		else:
 			# Jurang terlalu dalam/lebar -> Berhenti persis di bibir jurang, jangan sampai jatuh!
 			velocity.x = 0.0
@@ -274,6 +277,7 @@ func _process_chase(delta: float) -> void:
 		if abs(dist_x) > 100.0 and abs(dist_x) < 230.0:
 			jump_timer = 0.0
 			velocity.y = jump_stomp_force
+			GameManager.play_sfx("res://Audio/pluck_002.ogg", 2.0, 0.8)
 
 	# Jika pemain kabur sangat jauh, kembali ke patroli santai
 	if dist_total > (chase_detection_range + 180.0):
@@ -295,6 +299,9 @@ func _perform_sword_slash() -> void:
 
 	# Bos sedikit menerjang maju saat menebas
 	velocity.x = direction * 80.0
+
+	# Suara tebasan pedang raksasa
+	GameManager.play_sfx("res://Audio/knifeSlice2.ogg", 3.0, 0.85)
 
 	# Munculkan Efek Visual Tebasan Pedang (Slash FX) Raksasa
 	_spawn_giant_slash_fx()
@@ -363,6 +370,7 @@ func _update_animation(delta: float) -> void:
 
 ## Efek Hentakan Tanah Saat Bos Mendarat dari Serangan Injak
 func _on_stomp_landed() -> void:
+	GameManager.play_sfx("res://Audio/bong_001.ogg", 4.0, 0.7)
 	if sprite:
 		var cur_scale = sprite.scale
 		var tween = create_tween()
@@ -399,6 +407,7 @@ func take_damage(amount: int) -> void:
 
 	hp -= amount
 	is_invulnerable = true
+	GameManager.play_sfx("res://Audio/metalPot1.ogg", 2.0, randf_range(0.9, 1.1))
 
 	if health_bar:
 		health_bar.update_hp(hp)
@@ -463,12 +472,15 @@ func _defeat_boss() -> void:
 		body_area.set_deferred("monitorable", false)
 
 	_spawn_dizzy_stars()
+	GameManager.play_sfx("res://Audio/glitch_001.ogg", 2.0)
 
 	# Tahap 1: Bos pusing selama 1.3 detik
 	await get_tree().create_timer(1.3).timeout
 
 	# Tahap 2: Bos jatuh miring terkapar ke lantai (Jatuh)
 	current_state = State.DEFEATED
+	GameManager.play_sfx("res://Audio/dropLeather.ogg", 3.0)
+	GameManager.play_sfx("res://Audio/dropLeather.ogg", 3.0)
 	var fall_side = -direction if direction != 0 else 1.0
 	var tween = create_tween()
 	tween.tween_property(sprite, "rotation_degrees", fall_side * 90.0, 0.45).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)

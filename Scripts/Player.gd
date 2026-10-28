@@ -83,8 +83,7 @@ func _physics_process(delta: float) -> void:
 	# 3. Logika Lompat Tinggi
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		if sfx_jump and sfx_jump.stream:
-			sfx_jump.play()
+		GameManager.play_sfx("res://Audio/pluck_001.ogg", -2.0, randf_range(0.95, 1.05))
 
 	# 4. Serangan Senjata Pedang (Tombol Z / J / Klik Kiri)
 	if Input.is_action_just_pressed("attack") and weapon:
@@ -160,8 +159,7 @@ func _shoot_arrow() -> void:
 		get_parent().add_child(beam)
 		beam.setup(facing_direction, spawn_pos)
 		
-	if sfx_jump and sfx_jump.stream:
-		sfx_jump.play()
+	GameManager.play_sfx("res://Audio/drawKnife1.ogg", -2.0, randf_range(0.95, 1.05))
 
 ## Menerima luka dari musuh/bos
 func take_damage(amount: int, knockback: Vector2 = Vector2.ZERO) -> void:
@@ -171,6 +169,7 @@ func take_damage(amount: int, knockback: Vector2 = Vector2.ZERO) -> void:
 	hp -= amount
 	hp_changed.emit(hp, max_hp)
 	is_invulnerable = true
+	GameManager.play_sfx("res://Audio/error_001.ogg", 1.0)
 
 	if knockback != Vector2.ZERO:
 		velocity = knockback
@@ -191,6 +190,7 @@ func take_damage(amount: int, knockback: Vector2 = Vector2.ZERO) -> void:
 
 	if hp <= 0:
 		player_died.emit()
+		GameManager.play_sfx("res://Audio/drop_001.ogg", 1.0)
 		respawn()
 
 ## Menyimpan titik respawn dari checkpoint yang disentuh
@@ -210,5 +210,4 @@ func respawn() -> void:
 ## Dipanggil saat menginjak kepala musuh/bos
 func bounce(force: float = BOUNCE_VELOCITY) -> void:
 	velocity.y = force
-	if sfx_stomp and sfx_stomp.stream:
-		sfx_stomp.play()
+	GameManager.play_sfx("res://Audio/bong_001.ogg", 1.0)

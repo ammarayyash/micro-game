@@ -64,8 +64,7 @@ func attack(facing_direction: float) -> bool:
 		sprite_sword.visible = true
 	if sprite_slash:
 		sprite_slash.visible = true
-	if sfx_swing and sfx_swing.stream:
-		sfx_swing.play()
+	GameManager.play_sfx("res://Audio/knifeSlice.ogg", 0.0, randf_range(0.95, 1.05))
 
 	# Langsung serang semua musuh/bos yang berada dalam jangkauan tebasan
 	for b in get_overlapping_bodies():
@@ -86,3 +85,4 @@ func _on_area_entered(area: Area2D) -> void:
 func _hit(target: Node) -> void:
 	if target and target.has_method("take_damage") and target != get_parent():
 		target.take_damage(damage)
+		GameManager.play_sfx("res://Audio/chop.ogg", 1.0, randf_range(0.95, 1.05))

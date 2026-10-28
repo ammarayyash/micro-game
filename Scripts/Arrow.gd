@@ -40,6 +40,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
+	GameManager.play_sfx("res://Audio/glass_003.ogg", -2.0, randf_range(0.95, 1.05))
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:

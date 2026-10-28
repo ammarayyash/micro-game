@@ -35,6 +35,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		if body.has_method("take_damage"):
 			body.take_damage(damage, Vector2(direction * 120.0, -160.0))
+		GameManager.play_sfx("res://Audio/glass_004.ogg", -1.0)
 		queue_free()
 	elif body is TileMap or body is StaticBody2D:
+		GameManager.play_sfx("res://Audio/glass_004.ogg", -3.0)
 		queue_free()

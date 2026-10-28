@@ -19,6 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		is_activated = true
 		checkpoint_activated.emit(global_position)
+		GameManager.play_sfx("res://Audio/handleCoins.ogg", 2.0)
 		if flag_sprite:
 			flag_sprite.color = Color(0.2, 0.9, 0.3, 1) # Berubah jadi hijau tanda aktif
 		if label_hint:

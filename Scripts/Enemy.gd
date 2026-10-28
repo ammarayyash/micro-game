@@ -188,6 +188,7 @@ func _shoot_fireball() -> void:
 			proj.setup(direction, spawn_pos)
 
 		_spawn_shoot_flash()
+		GameManager.play_sfx("res://Audio/drawKnife3.ogg", -1.0, randf_range(0.95, 1.05))
 
 func _spawn_shoot_flash() -> void:
 	var flash = Label.new()
@@ -237,6 +238,7 @@ func take_damage(amount: int) -> void:
 		return
 
 	hp -= amount
+	GameManager.play_sfx("res://Audio/metalClick.ogg", 0.0, randf_range(0.9, 1.1))
 
 	# Efek kedip putih-merah saat terkena serangan
 	if sprite:
@@ -313,6 +315,7 @@ func die() -> void:
 		sfx_hit.play()
 
 	_spawn_defeat_puff()
+	GameManager.play_sfx("res://Audio/scratch_001.ogg", 1.0, randf_range(0.95, 1.05))
 
 	# Efek tumbang & pudar
 	if sprite:

@@ -16,6 +16,7 @@ func _ready() -> void:
 func unlock() -> void:
 	is_locked = false
 	update_appearance()
+	GameManager.play_sfx("res://Audio/maximize_001.ogg", 2.0)
 
 func update_appearance() -> void:
 	if sprite:
@@ -27,6 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 		
 	if body is Player:
+		GameManager.play_sfx("res://Audio/doorOpen_2.ogg", 1.0)
 		if target_level == 2:
 			GameManager.go_to_level_2()
 		else:

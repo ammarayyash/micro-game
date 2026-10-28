@@ -19,6 +19,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	panel_container.visible = false
 	if btn_continue:
+		btn_continue.mouse_entered.connect(func(): GameManager.play_sfx("res://Audio/select_001.ogg", -4.0))
 		btn_continue.pressed.connect(_on_continue_pressed)
 
 func show_profile(data: Dictionary, custom_title: String = "IDENTITAS TERUNGKAP!") -> void:
@@ -38,10 +39,12 @@ func show_profile(data: Dictionary, custom_title: String = "IDENTITAS TERUNGKAP!
 			texture_avatar.texture = tex
 			
 	panel_container.visible = true
+	GameManager.play_sfx("res://Audio/open_001.ogg", 2.0)
 	# Hentikan gameplay selagi pemain membaca identitas
 	get_tree().paused = true
 
 func _on_continue_pressed() -> void:
 	panel_container.visible = false
 	get_tree().paused = false
+	GameManager.play_sfx("res://Audio/close_001.ogg", 1.0)
 	popup_closed.emit()
