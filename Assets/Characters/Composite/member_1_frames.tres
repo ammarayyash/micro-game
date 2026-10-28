@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m1_jump_5.png" id="16_jpamo"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m1_jump_6.png" id="17_4kb0i"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m1_jump_7.png" id="18_x735a"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m1_stomp.png" id="19_kasyd"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m1_walk_0.png" id="19_sns8n"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m1_walk_1.png" id="20_h1r7f"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m1_walk_2.png" id="21_8ygus"]
@@ -101,6 +102,14 @@ animations = [{
 }],
 "loop": 0,
 "name": &"jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_kasyd")
+}],
+"loop": 0,
+"name": &"stomp",
 "speed": 8.0
 }, {
 "frames": [{
