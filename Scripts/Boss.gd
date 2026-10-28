@@ -57,7 +57,8 @@ var last_fall_speed: float = 0.0
 var ledge_ray: RayCast2D
 var chasm_leap_ray: RayCast2D
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D if has_node("AnimatedSprite2D") else null
+@onready var sprite: Sprite2D = $Sprite2D if has_node("Sprite2D") else null
 @onready var head_area: Area2D = $HeadHurtbox
 @onready var body_area: Area2D = $BodyDamageArea if has_node("BodyDamageArea") else null
 @onready var wall_ray: RayCast2D = $WallRay if has_node("WallRay") else null
@@ -141,7 +142,13 @@ func _ready() -> void:
 	if ResourceLoader.exists(slash_path):
 		tex_slash_fx = load(slash_path)
 
-	if sprite and tex_idle:
+	var m_num = boss_id + 1
+	var frames_path = "res://Assets/Characters/Composite/member_%d_frames.tres" % m_num
+	if anim_sprite and ResourceLoader.exists(frames_path):
+		anim_sprite.sprite_frames = load(frames_path)
+		anim_sprite.play("idle")
+		anim_sprite.flip_h = direction < 0
+	elif sprite and tex_idle:
 		sprite.texture = tex_idle
 		sprite.flip_h = direction < 0
 
@@ -337,6 +344,25 @@ func _spawn_giant_slash_fx() -> void:
 	tween.tween_callback(slash.queue_free)
 
 func _update_animation(delta: float) -> void:
+	if anim_sprite:
+		anim_sprite.flip_h = direction < 0
+		if current_state == State.DIZZY or current_state == State.DEFEATED:
+			if anim_sprite.sprite_frames.has_animation("dizzy"):
+				anim_sprite.play("dizzy")
+		elif is_slashing:
+			if anim_sprite.sprite_frames.has_animation("attack"):
+				anim_sprite.play("attack")
+		elif not is_on_floor():
+			if anim_sprite.sprite_frames.has_animation("jump"):
+				anim_sprite.play("jump")
+		elif velocity.x != 0:
+			if anim_sprite.sprite_frames.has_animation("walk"):
+				anim_sprite.play("walk")
+		else:
+			if anim_sprite.sprite_frames.has_animation("idle"):
+				anim_sprite.play("idle")
+		return
+
 	if not sprite:
 		return
 
@@ -370,11 +396,12 @@ func _update_animation(delta: float) -> void:
 ## Efek Hentakan Tanah Saat Bos Mendarat dari Serangan Injak
 func _on_stomp_landed() -> void:
 	GameManager.play_sfx("res://Audio/bong_001.ogg", 4.0, 0.7)
-	if sprite:
-		var cur_scale = sprite.scale
+	var vis_land: Node2D = anim_sprite if anim_sprite else sprite
+	if vis_land:
+		var cur_scale = vis_land.scale
 		var tween = create_tween()
-		tween.tween_property(sprite, "scale", Vector2(cur_scale.x * 1.15, cur_scale.y * 0.85), 0.08)
-		tween.tween_property(sprite, "scale", cur_scale, 0.12)
+		tween.tween_property(vis_land, "scale", Vector2(cur_scale.x * 1.15, cur_scale.y * 0.85), 0.08)
+		tween.tween_property(vis_land, "scale", cur_scale, 0.12)
 
 	_spawn_ground_shockwave()
 
@@ -413,10 +440,11 @@ func take_damage(amount: int) -> void:
 	hp_updated.emit(hp, max_hp)
 
 	# Efek kedip merah saat terkena serangan
-	if sprite:
-		sprite.modulate = Color(1.0, 0.2, 0.2, 1.0)
+	var vis_hit: Node2D = anim_sprite if anim_sprite else sprite
+	if vis_hit:
+		vis_hit.modulate = Color(1.0, 0.2, 0.2, 1.0)
 		var tween = create_tween()
-		tween.tween_property(sprite, "modulate", Color(1, 1, 1, 1), 0.22)
+		tween.tween_property(vis_hit, "modulate", Color(1, 1, 1, 1), 0.22)
 
 	_spawn_hit_sparks()
 

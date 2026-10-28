@@ -14,6 +14,8 @@ var team_members: Array = [
 		"nim": "240533606050",
 		"role": "Programmer",
 		"avatar": "res://Assets/Profiles/member_1.png",
+		"spritesheet": "res://Assets/Characters/Composite/spritesheet_member_1.png",
+		"sprite_frames": "res://Assets/Characters/Composite/member_1_frames.tres",
 		"sprite_idle": "res://Assets/Characters/Composite/char_m1_idle.png",
 		"sprite_dizzy": "res://Assets/Characters/Composite/boss_m1_dizzy_0.png",
 		"color": Color(1, 1, 1, 1)
@@ -24,6 +26,8 @@ var team_members: Array = [
 		"nim": "240533607478",
 		"role": "Artist",
 		"avatar": "res://Assets/Profiles/member_2.png",
+		"spritesheet": "res://Assets/Characters/Composite/spritesheet_member_2.png",
+		"sprite_frames": "res://Assets/Characters/Composite/member_2_frames.tres",
 		"sprite_idle": "res://Assets/Characters/Composite/char_m2_idle.png",
 		"sprite_dizzy": "res://Assets/Characters/Composite/boss_m2_dizzy_0.png",
 		"color": Color(1, 1, 1, 1)
@@ -34,6 +38,8 @@ var team_members: Array = [
 		"nim": "240533608523",
 		"role": "Level Designer",
 		"avatar": "res://Assets/Profiles/member_3.png",
+		"spritesheet": "res://Assets/Characters/Composite/spritesheet_member_3.png",
+		"sprite_frames": "res://Assets/Characters/Composite/member_3_frames.tres",
 		"sprite_idle": "res://Assets/Characters/Composite/char_m3_idle.png",
 		"sprite_dizzy": "res://Assets/Characters/Composite/boss_m3_dizzy_0.png",
 		"color": Color(1, 1, 1, 1)

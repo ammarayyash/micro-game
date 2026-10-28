@@ -1,11 +1,5 @@
 extends CharacterBody2D
 
-## ====================================================================
-## SKRIP LATIHAN KODING (KHUSUS PRAKTEK REKAMAN PROGRAMMER)
-## File ini berada di Bahan_Praktek_Rekaman/ dan TIDAK mempengaruhi game utama!
-## Anda bisa mengedit, mengetik ulang, atau mendemonstrasikannya saat rekaman.
-## ====================================================================
-
 # Konstanta Fisika
 const SPEED = 200.0
 const JUMP_VELOCITY = -380.0

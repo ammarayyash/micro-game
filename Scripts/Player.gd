@@ -40,7 +40,8 @@ var tex_attack: Texture2D
 
 var anim_timer: float = 0.0
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D if has_node("AnimatedSprite2D") else null
+@onready var sprite: Sprite2D = $Sprite2D if has_node("Sprite2D") else null
 @onready var weapon: Weapon = $Weapon if has_node("Weapon") else null
 @onready var sfx_jump: AudioStreamPlayer2D = $SFXJump if has_node("SFXJump") else null
 @onready var sfx_stomp: AudioStreamPlayer2D = $SFXStomp if has_node("SFXStomp") else null
@@ -67,7 +68,11 @@ func _ready() -> void:
 	tex_idle = walk_frames[0]
 	tex_attack = load(base_path + "char_" + prefix + "_attack.png")
 	
-	if sprite and tex_idle:
+	var hero_frames_path: String = GameManager.selected_hero.get("sprite_frames", "res://Assets/Characters/Composite/member_" + str(hero_id + 1) + "_frames.tres")
+	if anim_sprite and ResourceLoader.exists(hero_frames_path):
+		anim_sprite.sprite_frames = load(hero_frames_path)
+		anim_sprite.play("idle")
+	elif sprite and tex_idle:
 		sprite.texture = tex_idle
 
 func _physics_process(delta: float) -> void:
@@ -107,7 +112,9 @@ func _physics_process(delta: float) -> void:
 	if direction != 0:
 		velocity.x = direction * SPEED
 		facing_direction = direction
-		if sprite:
+		if anim_sprite:
+			anim_sprite.flip_h = direction < 0
+		elif sprite:
 			sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * 8.0 * delta)
@@ -117,6 +124,21 @@ func _physics_process(delta: float) -> void:
 
 ## Mengatur pergantian 8 frame animasi jalan & lompat
 func _update_animation(delta: float, direction: float) -> void:
+	if anim_sprite:
+		if is_attacking_anim:
+			if anim_sprite.sprite_frames.has_animation("attack"):
+				anim_sprite.play("attack")
+		elif not is_on_floor():
+			if anim_sprite.sprite_frames.has_animation("jump"):
+				anim_sprite.play("jump")
+		elif direction != 0:
+			if anim_sprite.sprite_frames.has_animation("walk"):
+				anim_sprite.play("walk")
+		else:
+			if anim_sprite.sprite_frames.has_animation("idle"):
+				anim_sprite.play("idle")
+		return
+
 	if not sprite:
 		return
 
@@ -177,12 +199,13 @@ func take_damage(amount: int, knockback: Vector2 = Vector2.ZERO) -> void:
 		velocity = Vector2(-facing_direction * 120.0, -180.0)
 
 	# Efek kedip saat terkena luka
-	if sprite:
+	var vis: Node2D = anim_sprite if anim_sprite else sprite
+	if vis:
 		var tween = create_tween()
-		tween.tween_property(sprite, "modulate:a", 0.3, 0.1)
-		tween.tween_property(sprite, "modulate:a", 1.0, 0.1)
-		tween.tween_property(sprite, "modulate:a", 0.3, 0.1)
-		tween.tween_property(sprite, "modulate:a", 1.0, 0.1)
+		tween.tween_property(vis, "modulate:a", 0.3, 0.1)
+		tween.tween_property(vis, "modulate:a", 1.0, 0.1)
+		tween.tween_property(vis, "modulate:a", 0.3, 0.1)
+		tween.tween_property(vis, "modulate:a", 1.0, 0.1)
 
 	get_tree().create_timer(0.8).timeout.connect(func():
 		is_invulnerable = false
@@ -203,8 +226,9 @@ func respawn() -> void:
 	global_position = spawn_point
 	hp = max_hp
 	hp_changed.emit(hp, max_hp)
-	if sprite:
-		sprite.modulate.a = 1.0
+	var vis_resp: Node2D = anim_sprite if anim_sprite else sprite
+	if vis_resp:
+		vis_resp.modulate.a = 1.0
 	is_invulnerable = false
 
 ## Dipanggil saat menginjak kepala musuh/bos

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_player"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m1_idle.png" id="2_texture"]
+[ext_resource type="SpriteFrames" path="res://Assets/Characters/Composite/member_1_frames.tres" id="2_frames"]
 [ext_resource type="Script" path="res://Scripts/Weapon.gd" id="3_weapon_script"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/sword_iron.png" id="4_sword_tex"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Composite/slash_fx.png" id="5_slash_tex"]
@@ -23,9 +23,11 @@ script = ExtResource("1_player")
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_body")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_texture")
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Weapon" type="Area2D" parent="."]
 position = Vector2(22, 0)

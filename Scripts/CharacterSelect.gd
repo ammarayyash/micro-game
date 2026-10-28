@@ -19,14 +19,14 @@ extends Control
 func _ready() -> void:
 	# Isi teks awal dari data GameManager
 	if GameManager.team_members.size() > 0:
-		edit_nama_0.text = str(GameManager.team_members[0].get("nama", "Muhammad Ammar A"))
-		edit_nim_0.text = str(GameManager.team_members[0].get("nim", "240533606050"))
+		edit_nama_0.text = str(GameManager.team_members[0].get("nama", "Mamank (M1)"))
+		edit_nim_0.text = str(GameManager.team_members[0].get("nim", "220101001"))
 	if GameManager.team_members.size() > 1:
-		edit_nama_1.text = str(GameManager.team_members[1].get("nama", "Habibulloh Zamzami"))
+		edit_nama_1.text = str(GameManager.team_members[1].get("nama", "Member 2"))
 		edit_nim_1.text = str(GameManager.team_members[1].get("nim", "240533607478"))
 	if GameManager.team_members.size() > 2:
-		edit_nama_2.text = str(GameManager.team_members[2].get("nama", "Mohammad Afton Ilman H"))
-		edit_nim_2.text = str(GameManager.team_members[2].get("nim", "240533608523"))
+		edit_nama_2.text = str(GameManager.team_members[2].get("nama", "Member 3"))
+		edit_nim_2.text = str(GameManager.team_members[2].get("nim", "220101003"))
 
 	# Simpan perubahan secara real-time saat pengguna mengetik
 	edit_nama_0.text_changed.connect(func(val): GameManager.update_member_info(0, val, edit_nim_0.text))

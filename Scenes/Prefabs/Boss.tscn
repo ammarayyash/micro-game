@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://Scripts/Boss.gd" id="1_boss"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Composite/char_m2_idle.png" id="2_boss_tex"]
+[ext_resource type="SpriteFrames" path="res://Assets/Characters/Composite/member_2_frames.tres" id="2_frames"]
 [ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="3_hb_script"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
@@ -30,10 +30,12 @@ max_hp = 5
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_body")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2.6, 2.6)
-texture = ExtResource("2_boss_tex")
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="HeadHurtbox" type="Area2D" parent="."]
 collision_layer = 0
